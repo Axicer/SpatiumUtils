@@ -1,0 +1,28 @@
+######################################
+#         Permissions Nodes          #
+######################################
+#
+# Toutes les commande: spatium.*
+#
+# /bifle --> spatium.bifle
+# /fakejoin --> spatium.fakejoin
+# /fakeleft --> spatium.fakeleft
+# /invi --> spatium.invi
+# /maintenance --> spatium.maintenance
+# /poke --> spatium.poke & spatium.poke.nocountdown
+# /sban --> spatium.sban
+# /sbanuuid --> spatium.banuuid
+# /skick --> spatium.skick
+# /smute -- spatium.smute
+# /sreload --> spatium.sreload
+# /sunban --> spatium.sunban
+# /sunbanuuid --> spatium.sunbanuuid
+# /sunmute --> spatium.sunmute
+# /uuid --> spatium.uuid
+#
+######################################
+#             Config                 #
+######################################
+# liste des personnes autorisés a faire /op et /deop
+OPAuth:
+- putPlayerPseudoHere

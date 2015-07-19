@@ -1,0 +1,58 @@
+name: SpatiumUtils
+version: 1.4
+author: Axicer
+main: fr.axicer.SpatiumUtils.SpatiumUtils
+depend: [Vault]
+
+commands:
+  sban:
+    description: Bannir un joueur
+    usage: /sban (player)
+  sunban:
+    description: Debannir un joueur
+    usage: /sunban (player)
+  sbanuuid:
+    description: Bannir un UUID
+    usage: /sbanuuid (player)
+  sunbanuuid:
+    description: Debannir un UUID
+    usage: /sunbanuuid (player)
+  uuid:
+    description: Affiche l'UUID d'un joueur
+    usage: /uuid (player)
+  skick:
+    description: Kick un joueur
+    usage: /skick (player) [raison]
+  smute:
+    description: Mute un joueur
+    usage: /smute (player)
+  sunmute:
+    description: Demute un joueur
+    usage: /sunmute (player)
+  maintenance:
+    description: Active/desactive la maintenance et kick les joueurs qui ne sont pas dans la maintenanceWhiteList
+    usage: /maintenance
+  sreload:
+    description: reload les configs
+    usage: /sreload
+  bifle:
+    description: bifle un joueur
+    usage: /bifle (player)
+  poke:
+    description: poke un joueur
+    usage: /poke (player) [intensity]
+  invi:
+    description: rend invisible !
+    usage: /invi
+  fakejoin:
+    description: creer une fausse connection !
+    usage: /fakejoin (player)
+  fakeleft:
+    description: creer une fausse deconnexion !
+    usage: /fakeleft (player)
+  name:
+    description: donne le pseudo d'un joueur depuis son uuid
+    usage: /name (uuid)
+  feuerfrei:
+    description: BANG BANG !
+    usage: /feuerfrei (player)
