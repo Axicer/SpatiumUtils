@@ -15,6 +15,7 @@ import fr.axicer.SpatiumUtils.Utils.Vault;
 
 public class SbanCommand implements CommandExecutor {
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label,String[] args) {
 		if(sender.isOp() || Vault.getPermissions().has(sender, "spatium.sban") || Vault.getPermissions().has(sender, "spatium.*")){

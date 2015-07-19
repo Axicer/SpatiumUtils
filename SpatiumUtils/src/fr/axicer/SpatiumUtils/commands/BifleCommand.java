@@ -12,6 +12,7 @@ import fr.axicer.SpatiumUtils.Utils.Vault;
 
 public class BifleCommand implements CommandExecutor {
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label,String[] args) {
 		if(sender.isOp() || Vault.getPermissions().has(sender, "spatium.bifle") || Vault.getPermissions().has(sender, "spatium.*")){
