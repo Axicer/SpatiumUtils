@@ -17,6 +17,7 @@ public class SpatiumUtils extends JavaPlugin{
 		try {
 			ConfigUtils.createConfigFiles(this);
 		} catch (IOException e) {
+			getLogger().severe("Les configs n'ont pas reussi a etre crées !");
 			e.printStackTrace();
 		}// create config files and load them
 		
