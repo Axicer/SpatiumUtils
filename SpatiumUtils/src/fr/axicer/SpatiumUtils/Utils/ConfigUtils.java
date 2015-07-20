@@ -19,6 +19,8 @@ public class ConfigUtils {
 	private static File fichierConfigMuted;
 	private static YamlConfiguration maintenanceWhiteList;
 	private static File fichierMaintenanceWhiteList;
+	private static YamlConfiguration moneyConfig;
+	private static File fichierMoneyConfig;
 	
 	public static void createConfigFiles(SpatiumUtils pl) throws IOException{
 		
@@ -26,6 +28,7 @@ public class ConfigUtils {
 		fichierConfigbanuuid = new File(pl.getDataFolder()+"/banneduuid.yml");
 		fichierConfigMuted = new File(pl.getDataFolder()+"/muted.yml");
 		fichierMaintenanceWhiteList = new File(pl.getDataFolder()+"/maintenance_White_List.yml");
+		fichierMoneyConfig = new File(pl.getDataFolder()+"/money.yml");
 		
 		if(!fichierConfigban.exists()){
 			fichierConfigban.createNewFile();
@@ -74,6 +77,14 @@ public class ConfigUtils {
 			maintenanceWhiteList = YamlConfiguration.loadConfiguration(fichierMaintenanceWhiteList);
 			saveMaintenanceWhiteListConfig();
 		}
+		if(!fichierMoneyConfig.exists()){
+			fichierMoneyConfig.createNewFile();
+			moneyConfig = YamlConfiguration.loadConfiguration(fichierMoneyConfig);
+			moneyConfig.createSection("players");
+		}else{
+			moneyConfig = YamlConfiguration.loadConfiguration(fichierMoneyConfig);
+			
+		}
 	}
 	
 	public static void reloadConfigFile(SpatiumUtils pl){
@@ -81,6 +92,7 @@ public class ConfigUtils {
 		bannedUUIDConfig = YamlConfiguration.loadConfiguration(fichierConfigbanuuid);
 		mutedConfig = YamlConfiguration.loadConfiguration(fichierConfigMuted);
 		maintenanceWhiteList = YamlConfiguration.loadConfiguration(fichierMaintenanceWhiteList);
+		moneyConfig = YamlConfiguration.loadConfiguration(fichierMoneyConfig);
 		pl.reloadConfig();
 	}
 	
@@ -97,6 +109,9 @@ public class ConfigUtils {
 	public static YamlConfiguration getMaintenanceWhiteListConfig(){
 		return maintenanceWhiteList;
 	}
+	public static YamlConfiguration getMoneyConfig(){
+		return moneyConfig;
+	}
 	public static File getbannedConfigFile(){
 		return fichierConfigban;
 	}
@@ -108,6 +123,9 @@ public class ConfigUtils {
 	}
 	public static File getMaintenanceWhiteListFile(){
 		return fichierMaintenanceWhiteList;
+	}
+	public static File getMoneyConfigFile(){
+		return fichierMoneyConfig;
 	}
 	public static void saveBannedConfig(){
 		try {
@@ -134,6 +152,13 @@ public class ConfigUtils {
 		try {
 			maintenanceWhiteList.save(getMaintenanceWhiteListFile());
 		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	public static void saveMoneyConfig(){
+		try{
+			moneyConfig.save(getMoneyConfigFile());
+		}catch(IOException e){
 			e.printStackTrace();
 		}
 	}
