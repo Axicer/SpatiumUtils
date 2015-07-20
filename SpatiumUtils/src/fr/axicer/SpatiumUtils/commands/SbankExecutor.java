@@ -55,9 +55,9 @@ public class SbankExecutor implements CommandExecutor {
 								if(newValue > Integer.MAX_VALUE){
 									sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"La somme du joueur ne peut pas depasser "+ChatColor.GOLD+Integer.MAX_VALUE);
 								}else{
-									ConfigUtils.getMoneyConfig().set("players."+player.getUniqueId().toString(), lastPlayerMoney+addedValue);
+									ConfigUtils.getMoneyConfig().set("players."+player.getUniqueId().toString(), newValue);
 									ConfigUtils.saveMoneyConfig();
-									sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"La somme d'argent de "+ChatColor.GOLD+player.getName()+ChatColor.GREEN+" est maintenant de "+ChatColor.GOLD+lastPlayerMoney+addedValue+"€");
+									sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"La somme d'argent de "+ChatColor.GOLD+player.getName()+ChatColor.GREEN+" est maintenant de "+ChatColor.GOLD+newValue+"€");
 								}
 							}else{
 								sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"Le joueur est introuvable !");
@@ -66,7 +66,28 @@ public class SbankExecutor implements CommandExecutor {
 							sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"Tu n'es pas autorisé a effectuer cette commande !");
 						}
 					}else if(args[0].equalsIgnoreCase("remove")){
-						//TODO /sbank remove (player) (somme)
+						if(sender.isOp() || Vault.getPermissions().has(sender, "spatium.sbank.remove") || Vault.getPermissions().has(sender, "spatium.*")){
+							OfflinePlayer player = null;
+							try{
+								player = Bukkit.getOfflinePlayer(args[1]);
+							}catch(Exception e){}
+							if(player != null){
+								int lastPlayerMoney = ConfigUtils.getMoneyConfig().getInt("players."+player.getUniqueId().toString());
+								int removedValue = Integer.parseInt(args[2]);
+								int newValue = lastPlayerMoney-removedValue;
+								if(newValue < 0){
+									sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"La somme du joueur ne peut pas etre inferieur à "+ChatColor.GOLD+"0");
+								}else{
+									ConfigUtils.getMoneyConfig().set("players."+player.getUniqueId().toString(), newValue);
+									ConfigUtils.saveMoneyConfig();
+									sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"La somme d'argent de "+ChatColor.GOLD+player.getName()+ChatColor.GREEN+" est maintenant de "+ChatColor.GOLD+newValue+"€");
+								}
+							}else{
+								sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"Le joueur est introuvable !");
+							}
+						}else{
+							sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"Tu n'es pas autorisé a effectuer cette commande !");
+						}
 					}else{
 						sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"La syntaxe est incorrecte !");
 						sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/sbank get|add|remove (player) [somme]"+ChatColor.RESET+"\".");
