@@ -56,3 +56,6 @@ commands:
   feuerfrei:
     description: BANG BANG !
     usage: /feuerfrei (player)
+  sbank:
+    description: commande de gestion de l'argent du serveur !
+    usage: /sbank get|add|remove (player) [somme]

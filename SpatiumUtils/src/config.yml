@@ -19,6 +19,9 @@
 # /sunbanuuid --> spatium.sunbanuuid
 # /sunmute --> spatium.sunmute
 # /uuid --> spatium.uuid
+# /sbank --> spatium.sbank.get
+#		 --> spatium.sbank.add
+#		 --> spatium.sbank.remove
 #
 ######################################
 #             Config                 #
