@@ -52,7 +52,7 @@ public class SbankExecutor implements CommandExecutor {
 								int lastPlayerMoney = ConfigUtils.getMoneyConfig().getInt("players."+player.getUniqueId().toString());
 								int addedValue = Integer.parseInt(args[2]);
 								int newValue = lastPlayerMoney+addedValue;
-								if(newValue > Integer.MAX_VALUE){
+								if(newValue < 0){
 									sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"La somme du joueur ne peut pas depasser "+ChatColor.GOLD+Integer.MAX_VALUE);
 								}else{
 									ConfigUtils.getMoneyConfig().set("players."+player.getUniqueId().toString(), newValue);
