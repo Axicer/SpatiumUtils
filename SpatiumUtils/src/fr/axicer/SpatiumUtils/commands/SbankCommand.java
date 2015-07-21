@@ -11,7 +11,7 @@ import fr.axicer.SpatiumUtils.Utils.ChatUtils;
 import fr.axicer.SpatiumUtils.Utils.ConfigUtils;
 import fr.axicer.SpatiumUtils.Utils.Vault;
 
-public class SbankExecutor implements CommandExecutor {
+public class SbankCommand implements CommandExecutor {
 
 	@SuppressWarnings("deprecation")
 	@Override
@@ -50,14 +50,21 @@ public class SbankExecutor implements CommandExecutor {
 							}catch(Exception e){}
 							if(player != null){
 								int lastPlayerMoney = ConfigUtils.getMoneyConfig().getInt("players."+player.getUniqueId().toString());
-								int addedValue = Integer.parseInt(args[2]);
-								int newValue = lastPlayerMoney+addedValue;
-								if(newValue < 0){
-									sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"La somme du joueur ne peut pas depasser "+ChatColor.GOLD+Integer.MAX_VALUE);
+								int addedValue = 0;
+								try{
+									addedValue = Integer.parseInt(args[2]);
+								}catch(Exception e){}
+								if(addedValue == 0){
+									sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"La valeur indiqué est incorrecte !");
 								}else{
-									ConfigUtils.getMoneyConfig().set("players."+player.getUniqueId().toString(), newValue);
-									ConfigUtils.saveMoneyConfig();
-									sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"La somme d'argent de "+ChatColor.GOLD+player.getName()+ChatColor.GREEN+" est maintenant de "+ChatColor.GOLD+newValue+"€");
+									int newValue = lastPlayerMoney+addedValue;
+									if(newValue < 0){
+										sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"La somme du joueur ne peut pas depasser "+ChatColor.GOLD+Integer.MAX_VALUE);
+									}else{
+										ConfigUtils.getMoneyConfig().set("players."+player.getUniqueId().toString(), newValue);
+										ConfigUtils.saveMoneyConfig();
+										sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"La somme d'argent de "+ChatColor.GOLD+player.getName()+ChatColor.GREEN+" est maintenant de "+ChatColor.GOLD+newValue+"€");
+									}
 								}
 							}else{
 								sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"Le joueur est introuvable !");

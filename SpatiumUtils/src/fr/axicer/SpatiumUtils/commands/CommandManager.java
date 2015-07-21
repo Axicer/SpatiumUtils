@@ -21,6 +21,6 @@ public class CommandManager {
 		pl.getCommand("fakeleft").setExecutor(new FakeLeftCommand());
 		pl.getCommand("name").setExecutor(new NameCommand());
 		pl.getCommand("feuerfrei").setExecutor(new FeuerFreiCommand());
-		pl.getCommand("sbank").setExecutor(new SbankExecutor());
+		pl.getCommand("sbank").setExecutor(new SbankCommand());
 	}
 }
