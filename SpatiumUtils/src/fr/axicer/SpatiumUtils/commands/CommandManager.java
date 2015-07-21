@@ -22,5 +22,6 @@ public class CommandManager {
 		pl.getCommand("name").setExecutor(new NameCommand());
 		pl.getCommand("feuerfrei").setExecutor(new FeuerFreiCommand());
 		pl.getCommand("sbank").setExecutor(new SbankCommand());
+		pl.getCommand("moon").setExecutor(new MoonCommand());
 	}
 }

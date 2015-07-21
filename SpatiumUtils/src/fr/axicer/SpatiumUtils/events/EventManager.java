@@ -15,5 +15,6 @@ public class EventManager {
 		pm.registerEvents(new ServerListPing(), sp);
 		pm.registerEvents(new PlayerCommandPreProcess(sp), sp);
 		pm.registerEvents(new EntityDamageByEntity(), sp);
+		pm.registerEvents(new PlayerMove(), sp);
 	}
 }

@@ -59,3 +59,6 @@ commands:
   sbank:
     description: commande de gestion de l'argent du serveur !
     usage: /sbank get|add|remove (player) [somme]
+  moon:
+    description: active la gravité de la lune !
+    usage: /moon
