@@ -20,9 +20,11 @@ public class MoonCommand implements CommandExecutor {
 				if(PlayerMove.getMoonGravityPlayers().contains(player)){
 					PlayerMove.getMoonGravityPlayers().remove(player);
 					player.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"Les effets de la gravitée ont été supprimés !");
+					player.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"We're back john !");
 				}else{
 					PlayerMove.getMoonGravityPlayers().add(player);
 					player.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"Les effets de la gravitée ont été activés !");
+					player.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"Let's start the groove !");
 				}
 			}else{
 				sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"Il faut etre un joueur pour effectuer la commande !");
