@@ -17,15 +17,15 @@ public class MaintenanceCommand implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String label,String[] args) {
 		if(sender.isOp() || Vault.getPermissions().has(sender, "spatium.maintenance") || Vault.getPermissions().has(sender, "spatium.*")){
 			if(args.length == 0){
-				if(ConfigUtils.getMaintenanceWhiteListConfig().getBoolean("activated")){
-					ConfigUtils.getMaintenanceWhiteListConfig().set("activated", false);
-					ConfigUtils.saveMaintenanceWhiteListConfig();
+				if(ConfigUtils.getMaintenanceConfig().getBoolean("activated")){
+					ConfigUtils.getMaintenanceConfig().set("activated", false);
+					ConfigUtils.saveMaintenanceConfig();
 					sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"Le mode maintenance a été désactivé !");
 				}else{
-					ConfigUtils.getMaintenanceWhiteListConfig().set("activated", true);
-					ConfigUtils.saveMaintenanceWhiteListConfig();
+					ConfigUtils.getMaintenanceConfig().set("activated", true);
+					ConfigUtils.saveMaintenanceConfig();
 					for(Player player : Bukkit.getOnlinePlayers()){
-						if(player.getName() != sender.getName() && !ConfigUtils.getMaintenanceWhiteListConfig().getStringList("authorized").contains(player.getName())){
+						if(player.getName() != sender.getName() && !ConfigUtils.getMaintenanceConfig().getStringList("authorized").contains(player.getName())){
 							player.kickPlayer("Le serveur est en maintenance, veuillez revenir plus tard.");
 						}
 					}

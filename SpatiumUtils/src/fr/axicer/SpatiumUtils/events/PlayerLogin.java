@@ -10,11 +10,11 @@ public class PlayerLogin implements Listener {
 	
 	@EventHandler
 	public void onPlayerLogin(PlayerLoginEvent ev){
-		if(ConfigUtils.getbannedConfig().getStringList("banned").contains(ev.getPlayer().getName()) || ConfigUtils.getbannedUUIDConfig().getStringList("banned").contains(ev.getPlayer().getUniqueId().toString())){
+		if(ConfigUtils.getbannedPlayerConfig().getStringList("banned").contains(ev.getPlayer().getName()) || ConfigUtils.getbannedUUIDPlayerConfig().getStringList("banned").contains(ev.getPlayer().getUniqueId().toString())){
 			ev.disallow(PlayerLoginEvent.Result.KICK_OTHER, "Tu es banni(e) !");
 		}
-		if(ConfigUtils.getMaintenanceWhiteListConfig().getBoolean("activated")){
-			if(!ConfigUtils.getMaintenanceWhiteListConfig().getStringList("authorized").contains(ev.getPlayer().getName())){
+		if(ConfigUtils.getMaintenanceConfig().getBoolean("activated")){
+			if(!ConfigUtils.getMaintenanceConfig().getStringList("authorized").contains(ev.getPlayer().getName())){
 				ev.disallow(PlayerLoginEvent.Result.KICK_OTHER, "Le serveur est en maintenance !");
 			}
 		}

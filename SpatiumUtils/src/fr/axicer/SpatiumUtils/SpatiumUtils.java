@@ -15,7 +15,7 @@ public class SpatiumUtils extends JavaPlugin{
 		saveDefaultConfig();// needed for create plugins's config file. 
 		
 		try {
-			ConfigUtils.createConfigFiles(this);
+			ConfigUtils.setupConfigFiles(this);
 		} catch (IOException e) {
 			getLogger().severe("Les configs n'ont pas reussi a etre crées !");
 			e.printStackTrace();

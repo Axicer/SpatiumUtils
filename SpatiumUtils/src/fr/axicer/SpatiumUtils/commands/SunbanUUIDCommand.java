@@ -25,11 +25,11 @@ public class SunbanUUIDCommand implements CommandExecutor {
 					target = Bukkit.getOfflinePlayer(args[0]);
 				}catch(Exception ex){}
 				if(target != null){
-					if(ConfigUtils.getbannedUUIDConfig().getStringList("banned").contains(target.getUniqueId().toString())){
-						List<String> list = ConfigUtils.getbannedUUIDConfig().getStringList("banned");
+					if(ConfigUtils.getbannedUUIDPlayerConfig().getStringList("banned").contains(target.getUniqueId().toString())){
+						List<String> list = ConfigUtils.getbannedUUIDPlayerConfig().getStringList("banned");
 						list.remove(target.getUniqueId().toString());
-						ConfigUtils.getbannedUUIDConfig().set("banned", list);
-						ConfigUtils.saveBannedUUIDConfig();
+						ConfigUtils.getbannedUUIDPlayerConfig().set("banned", list);
+						ConfigUtils.saveBannedUUIDPlayerConfig();
 						sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"Le joueur a été débanni !");
 					}else{
 						sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"Le joueur n'est pas banni !");

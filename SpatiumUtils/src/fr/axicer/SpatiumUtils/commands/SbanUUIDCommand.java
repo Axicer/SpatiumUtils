@@ -25,11 +25,11 @@ public class SbanUUIDCommand implements CommandExecutor {
 					target = Bukkit.getPlayer(args[0]);
 				}catch(Exception ex){}
 				if(target != null){
-					if(!ConfigUtils.getbannedUUIDConfig().getStringList("banned").contains(target.getUniqueId().toString())){
-						List<String> list = ConfigUtils.getbannedUUIDConfig().getStringList("banned");
+					if(!ConfigUtils.getbannedUUIDPlayerConfig().getStringList("banned").contains(target.getUniqueId().toString())){
+						List<String> list = ConfigUtils.getbannedUUIDPlayerConfig().getStringList("banned");
 						list.add(target.getUniqueId().toString());
-						ConfigUtils.getbannedUUIDConfig().set("banned", list);
-						ConfigUtils.saveBannedUUIDConfig();
+						ConfigUtils.getbannedUUIDPlayerConfig().set("banned", list);
+						ConfigUtils.saveBannedUUIDPlayerConfig();
 						target.kickPlayer("Tu as été banni par "+sender.getName());
 						sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"Le joueur a été banni !");
 					}else{

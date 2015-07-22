@@ -25,11 +25,11 @@ public class SbanCommand implements CommandExecutor {
 					target = Bukkit.getPlayer(args[0]);
 				}catch(Exception ex){}
 				if(target != null){
-					if(!ConfigUtils.getbannedConfig().getStringList("banned").contains(target.getName())){
-						List<String> list = ConfigUtils.getbannedConfig().getStringList("banned");
+					if(!ConfigUtils.getbannedPlayerConfig().getStringList("banned").contains(target.getName())){
+						List<String> list = ConfigUtils.getbannedPlayerConfig().getStringList("banned");
 						list.add(target.getName());
-						ConfigUtils.getbannedConfig().set("banned", list);
-						ConfigUtils.saveBannedConfig();
+						ConfigUtils.getbannedPlayerConfig().set("banned", list);
+						ConfigUtils.saveBannedPlayerConfig();
 						target.kickPlayer("Tu as été banni par "+sender.getName());
 						sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"Le joueur a été banni !");
 					}else{

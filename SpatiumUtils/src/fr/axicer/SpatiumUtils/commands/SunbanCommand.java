@@ -17,11 +17,11 @@ public class SunbanCommand implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if(sender.isOp() || Vault.getPermissions().has(sender, "spatium.sunban") || Vault.getPermissions().has(sender, "spatium.*")){
 			if(args.length == 1){
-				if(ConfigUtils.getbannedConfig().getStringList("banned").contains(args[0])){
-					List<String> list = ConfigUtils.getbannedConfig().getStringList("banned");
+				if(ConfigUtils.getbannedPlayerConfig().getStringList("banned").contains(args[0])){
+					List<String> list = ConfigUtils.getbannedPlayerConfig().getStringList("banned");
 					list.remove(args[0]);
-					ConfigUtils.getbannedConfig().set("banned", list);
-					ConfigUtils.saveBannedConfig();
+					ConfigUtils.getbannedPlayerConfig().set("banned", list);
+					ConfigUtils.saveBannedPlayerConfig();
 					sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"Le joueur a été débanni !");
 				}else{
 					sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"Le joueur n'est pas banni !");

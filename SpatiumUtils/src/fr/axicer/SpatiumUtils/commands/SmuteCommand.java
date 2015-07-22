@@ -25,11 +25,11 @@ public class SmuteCommand implements CommandExecutor {
 					target = Bukkit.getPlayer(args[0]);
 				}catch(Exception ex){}
 				if(target != null){
-					if(!ConfigUtils.getmutedConfig().getStringList("muted").contains(target.getName())){
-						List<String> list = ConfigUtils.getmutedConfig().getStringList("muted");
+					if(!ConfigUtils.getMutedPlayerConfig().getStringList("muted").contains(target.getName())){
+						List<String> list = ConfigUtils.getMutedPlayerConfig().getStringList("muted");
 						list.add(target.getName());
-						ConfigUtils.getmutedConfig().set("muted", list);
-						ConfigUtils.saveMutedConfig();
+						ConfigUtils.getMutedPlayerConfig().set("muted", list);
+						ConfigUtils.saveMutedPlayerConfig();
 						target.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"Tu as été mute !");
 						sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GRAY+"Le joueur "+target.getDisplayName()+ChatColor.GREEN+" a été mute !");
 					}else{

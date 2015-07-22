@@ -10,8 +10,8 @@ import fr.axicer.SpatiumUtils.Utils.ConfigUtils;
 public class ServerListPing implements Listener {
 	@EventHandler(priority = EventPriority.LOWEST)
 	public void onServerListPingEvent(ServerListPingEvent ev){
-		if(ConfigUtils.getMaintenanceWhiteListConfig().getBoolean("activated")){
-			ev.setMotd(ConfigUtils.getMaintenanceWhiteListConfig().getString("maintenanceMOTD"));
+		if(ConfigUtils.getMaintenanceConfig().getBoolean("activated")){
+			ev.setMotd(ConfigUtils.getMaintenanceConfig().getString("maintenanceMOTD"));
 		}
 	}
 }
