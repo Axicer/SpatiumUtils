@@ -71,3 +71,9 @@ commands:
   night:
     description: met la nuit !
     usage: /night
+  sun:
+    description: met le soleil !
+    usage: /sun
+  rain:
+    description: met la pluie !
+    usage: /rain

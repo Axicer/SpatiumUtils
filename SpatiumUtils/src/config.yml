@@ -25,6 +25,8 @@
 # /gravitygun --> spatium.gravitygun
 # /day --> spatium.day
 # /night --> spatium.night
+# /sun --> spatium.sun
+# /rain --> spatium.rain
 #
 ######################################
 #             Config                 #
