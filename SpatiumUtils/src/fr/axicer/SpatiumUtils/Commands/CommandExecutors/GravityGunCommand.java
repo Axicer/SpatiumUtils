@@ -36,9 +36,8 @@ public class GravityGunCommand implements CommandExecutor{
 					gravitygun.addUnsafeEnchantment(Enchantment.DURABILITY, 1);
 					player.getInventory().addItem(gravitygun);
 				}else{
-					
+					sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"Tu dois etre un joueur pour effectuer cette commande !");
 				}
-				
 			}else{
 				sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"La syntaxe est incorrecte !");
 				sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/gravitygun"+ChatColor.RESET+"\".");

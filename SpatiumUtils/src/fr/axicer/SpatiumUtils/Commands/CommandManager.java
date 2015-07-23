@@ -2,6 +2,7 @@ package fr.axicer.SpatiumUtils.Commands;
 
 import fr.axicer.SpatiumUtils.SpatiumUtils;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.BifleCommand;
+import fr.axicer.SpatiumUtils.Commands.CommandExecutors.DayCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.FakeJoinCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.FakeLeftCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.FeuerFreiCommand;
@@ -10,6 +11,7 @@ import fr.axicer.SpatiumUtils.Commands.CommandExecutors.InviCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.MaintenanceCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.MoonCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.NameCommand;
+import fr.axicer.SpatiumUtils.Commands.CommandExecutors.NightCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.PokeCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SbanCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SbanUUIDCommand;
@@ -44,5 +46,7 @@ public class CommandManager {
 		pl.getCommand("sbank").setExecutor(new SbankCommand());
 		pl.getCommand("moon").setExecutor(new MoonCommand());
 		pl.getCommand("gravitygun").setExecutor(new GravityGunCommand());
+		pl.getCommand("day").setExecutor(new DayCommand());
+		pl.getCommand("night").setExecutor(new NightCommand());
 	}
 }

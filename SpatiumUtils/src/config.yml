@@ -22,6 +22,9 @@
 # /sbank --> spatium.sbank.get
 #		 --> spatium.sbank.add
 #		 --> spatium.sbank.remove
+# /gravitygun --> spatium.gravitygun
+# /day --> spatium.day
+# /night --> spatium.night
 #
 ######################################
 #             Config                 #

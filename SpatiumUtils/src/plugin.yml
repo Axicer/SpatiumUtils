@@ -65,3 +65,9 @@ commands:
   gravitygun:
     description: donne un gravitygun !
     usage: /gravitygun
+  day:
+    description: met le jour !
+    usage: /day
+  night:
+    description: met la nuit !
+    usage: /night
