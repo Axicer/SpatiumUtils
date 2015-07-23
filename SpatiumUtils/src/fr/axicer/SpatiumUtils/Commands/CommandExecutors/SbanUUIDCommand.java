@@ -1,4 +1,4 @@
-package fr.axicer.SpatiumUtils.commands;
+package fr.axicer.SpatiumUtils.Commands.CommandExecutors;
 
 import java.util.List;
 
@@ -13,23 +13,23 @@ import fr.axicer.SpatiumUtils.Utils.ChatUtils;
 import fr.axicer.SpatiumUtils.Utils.ConfigUtils;
 import fr.axicer.SpatiumUtils.Utils.Vault;
 
-public class SbanCommand implements CommandExecutor {
+public class SbanUUIDCommand implements CommandExecutor {
 
 	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label,String[] args) {
-		if(sender.isOp() || Vault.getPermissions().has(sender, "spatium.sban") || Vault.getPermissions().has(sender, "spatium.*")){
+		if(sender.isOp() || Vault.getPermissions().has(sender, "spatium.sbanuuid") || Vault.getPermissions().has(sender, "spatium.*")){
 			if(args.length == 1){
 				Player target = null;
 				try{
 					target = Bukkit.getPlayer(args[0]);
 				}catch(Exception ex){}
 				if(target != null){
-					if(!ConfigUtils.getbannedPlayerConfig().getStringList("banned").contains(target.getName())){
-						List<String> list = ConfigUtils.getbannedPlayerConfig().getStringList("banned");
-						list.add(target.getName());
-						ConfigUtils.getbannedPlayerConfig().set("banned", list);
-						ConfigUtils.saveBannedPlayerConfig();
+					if(!ConfigUtils.getbannedUUIDPlayerConfig().getStringList("banned").contains(target.getUniqueId().toString())){
+						List<String> list = ConfigUtils.getbannedUUIDPlayerConfig().getStringList("banned");
+						list.add(target.getUniqueId().toString());
+						ConfigUtils.getbannedUUIDPlayerConfig().set("banned", list);
+						ConfigUtils.saveBannedUUIDPlayerConfig();
 						target.kickPlayer("Tu as été banni par "+sender.getName());
 						sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"Le joueur a été banni !");
 					}else{
@@ -48,5 +48,5 @@ public class SbanCommand implements CommandExecutor {
 		}
 		return true;
 	}
-	
+
 }

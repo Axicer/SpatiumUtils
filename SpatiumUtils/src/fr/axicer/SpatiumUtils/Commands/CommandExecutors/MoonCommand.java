@@ -1,4 +1,4 @@
-package fr.axicer.SpatiumUtils.commands;
+package fr.axicer.SpatiumUtils.Commands.CommandExecutors;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -6,7 +6,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import fr.axicer.SpatiumUtils.Events.events.PlayerMove;
+import fr.axicer.SpatiumUtils.Events.EventsListener.PlayerMove;
 import fr.axicer.SpatiumUtils.Utils.ChatUtils;
 import fr.axicer.SpatiumUtils.Utils.Vault;
 

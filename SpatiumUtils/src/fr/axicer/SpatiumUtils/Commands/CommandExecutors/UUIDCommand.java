@@ -1,4 +1,4 @@
-package fr.axicer.SpatiumUtils.commands;
+package fr.axicer.SpatiumUtils.Commands.CommandExecutors;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

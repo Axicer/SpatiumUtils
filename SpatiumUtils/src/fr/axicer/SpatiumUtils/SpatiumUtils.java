@@ -4,11 +4,11 @@ import java.io.IOException;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
+import fr.axicer.SpatiumUtils.Commands.CommandManager;
 import fr.axicer.SpatiumUtils.Events.EventManager;
 import fr.axicer.SpatiumUtils.Utils.ChatUtils;
 import fr.axicer.SpatiumUtils.Utils.ConfigUtils;
 import fr.axicer.SpatiumUtils.Utils.Vault;
-import fr.axicer.SpatiumUtils.commands.CommandManager;
 
 public class SpatiumUtils extends JavaPlugin{
 	public void onEnable(){

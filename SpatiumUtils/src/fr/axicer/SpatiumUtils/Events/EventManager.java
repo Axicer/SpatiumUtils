@@ -3,15 +3,15 @@ package fr.axicer.SpatiumUtils.Events;
 import org.bukkit.plugin.PluginManager;
 
 import fr.axicer.SpatiumUtils.SpatiumUtils;
-import fr.axicer.SpatiumUtils.Events.events.EntityDamage;
-import fr.axicer.SpatiumUtils.Events.events.EntityDamageByEntity;
-import fr.axicer.SpatiumUtils.Events.events.PlayerChat;
-import fr.axicer.SpatiumUtils.Events.events.PlayerCommandPreProcess;
-import fr.axicer.SpatiumUtils.Events.events.PlayerJoin;
-import fr.axicer.SpatiumUtils.Events.events.PlayerLogin;
-import fr.axicer.SpatiumUtils.Events.events.PlayerMove;
-import fr.axicer.SpatiumUtils.Events.events.PlayerQuit;
-import fr.axicer.SpatiumUtils.Events.events.ServerListPing;
+import fr.axicer.SpatiumUtils.Events.EventsListener.EntityDamage;
+import fr.axicer.SpatiumUtils.Events.EventsListener.EntityDamageByEntity;
+import fr.axicer.SpatiumUtils.Events.EventsListener.PlayerChat;
+import fr.axicer.SpatiumUtils.Events.EventsListener.PlayerCommandPreProcess;
+import fr.axicer.SpatiumUtils.Events.EventsListener.PlayerJoin;
+import fr.axicer.SpatiumUtils.Events.EventsListener.PlayerLogin;
+import fr.axicer.SpatiumUtils.Events.EventsListener.PlayerMove;
+import fr.axicer.SpatiumUtils.Events.EventsListener.PlayerQuit;
+import fr.axicer.SpatiumUtils.Events.EventsListener.ServerListPing;
 
 public class EventManager {
 	

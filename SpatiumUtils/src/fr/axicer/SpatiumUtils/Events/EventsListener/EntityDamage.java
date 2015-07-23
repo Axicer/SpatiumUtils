@@ -1,4 +1,4 @@
-package fr.axicer.SpatiumUtils.Events.events;
+package fr.axicer.SpatiumUtils.Events.EventsListener;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

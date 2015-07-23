@@ -1,44 +1,43 @@
-package fr.axicer.SpatiumUtils.commands;
+package fr.axicer.SpatiumUtils.Commands.CommandExecutors;
 
 import java.util.List;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 import fr.axicer.SpatiumUtils.Utils.ChatUtils;
 import fr.axicer.SpatiumUtils.Utils.ConfigUtils;
 import fr.axicer.SpatiumUtils.Utils.Vault;
 
-public class SbanUUIDCommand implements CommandExecutor {
+public class SunbanUUIDCommand implements CommandExecutor {
 
 	@SuppressWarnings("deprecation")
 	@Override
-	public boolean onCommand(CommandSender sender, Command cmd, String label,String[] args) {
-		if(sender.isOp() || Vault.getPermissions().has(sender, "spatium.sbanuuid") || Vault.getPermissions().has(sender, "spatium.*")){
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+		if(sender.isOp() || Vault.getPermissions().has(sender, "spatium.sunbanuuid") || Vault.getPermissions().has(sender, "spatium.*")){
 			if(args.length == 1){
-				Player target = null;
+				OfflinePlayer target = null;
 				try{
-					target = Bukkit.getPlayer(args[0]);
+					target = Bukkit.getOfflinePlayer(args[0]);
 				}catch(Exception ex){}
 				if(target != null){
-					if(!ConfigUtils.getbannedUUIDPlayerConfig().getStringList("banned").contains(target.getUniqueId().toString())){
+					if(ConfigUtils.getbannedUUIDPlayerConfig().getStringList("banned").contains(target.getUniqueId().toString())){
 						List<String> list = ConfigUtils.getbannedUUIDPlayerConfig().getStringList("banned");
-						list.add(target.getUniqueId().toString());
+						list.remove(target.getUniqueId().toString());
 						ConfigUtils.getbannedUUIDPlayerConfig().set("banned", list);
 						ConfigUtils.saveBannedUUIDPlayerConfig();
-						target.kickPlayer("Tu as été banni par "+sender.getName());
-						sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"Le joueur a été banni !");
+						sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"Le joueur a été débanni !");
 					}else{
-						sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"Le joueur est deja banni !");
-						sender.sendMessage(ChatUtils.getPluginPrefix()+"Pour le deban, la commande est \""+ChatColor.GOLD+"/sunban (player)"+ChatColor.RESET+"\".");
+						sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"Le joueur n'est pas banni !");
+						sender.sendMessage(ChatUtils.getPluginPrefix()+"Pour le ban, la commande est \""+ChatColor.GOLD+"/sbanuuid (player)"+ChatColor.RESET+"\".");
 					}
 				}else{
 					sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"Le joueur "+ChatColor.GOLD+args[0]+ChatColor.RED+" est introuvable !");
-				}		
+				}
 			}else{
 				sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"La syntaxe est incorrecte !");
 				sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/ban (player)"+ChatColor.RESET+"\".");
@@ -48,5 +47,4 @@ public class SbanUUIDCommand implements CommandExecutor {
 		}
 		return true;
 	}
-
 }
