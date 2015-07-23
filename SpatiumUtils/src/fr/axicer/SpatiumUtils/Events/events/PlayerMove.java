@@ -1,4 +1,4 @@
-package fr.axicer.SpatiumUtils.events;
+package fr.axicer.SpatiumUtils.Events.events;
 
 import java.util.ArrayList;
 

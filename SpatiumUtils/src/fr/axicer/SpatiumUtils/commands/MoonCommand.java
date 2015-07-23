@@ -6,9 +6,9 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import fr.axicer.SpatiumUtils.Events.events.PlayerMove;
 import fr.axicer.SpatiumUtils.Utils.ChatUtils;
 import fr.axicer.SpatiumUtils.Utils.Vault;
-import fr.axicer.SpatiumUtils.events.PlayerMove;
 
 public class MoonCommand implements CommandExecutor {
 

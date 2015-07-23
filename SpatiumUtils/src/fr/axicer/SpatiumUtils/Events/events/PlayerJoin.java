@@ -1,4 +1,4 @@
-package fr.axicer.SpatiumUtils.events;
+package fr.axicer.SpatiumUtils.Events.events;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;

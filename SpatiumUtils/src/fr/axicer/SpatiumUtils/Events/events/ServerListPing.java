@@ -1,4 +1,4 @@
-package fr.axicer.SpatiumUtils.events;
+package fr.axicer.SpatiumUtils.Events.events;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
