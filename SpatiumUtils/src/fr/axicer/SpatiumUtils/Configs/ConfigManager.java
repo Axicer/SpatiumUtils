@@ -1,17 +1,17 @@
-package fr.axicer.SpatiumUtils.Utils;
+package fr.axicer.SpatiumUtils.Configs;
 
 import java.io.IOException;
 
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import fr.axicer.SpatiumUtils.SpatiumUtils;
-import fr.axicer.SpatiumUtils.Utils.config.BannedPlayerConfig;
-import fr.axicer.SpatiumUtils.Utils.config.BannedUUIDPlayerConfig;
-import fr.axicer.SpatiumUtils.Utils.config.MaintenanceConfig;
-import fr.axicer.SpatiumUtils.Utils.config.MoneyConfig;
-import fr.axicer.SpatiumUtils.Utils.config.MutedPlayerConfig;
+import fr.axicer.SpatiumUtils.Configs.configs.BannedPlayerConfig;
+import fr.axicer.SpatiumUtils.Configs.configs.BannedUUIDPlayerConfig;
+import fr.axicer.SpatiumUtils.Configs.configs.MaintenanceConfig;
+import fr.axicer.SpatiumUtils.Configs.configs.MoneyConfig;
+import fr.axicer.SpatiumUtils.Configs.configs.MutedPlayerConfig;
 
-public class ConfigUtils {
+public class ConfigManager {
 	
 	public static void setupConfigFiles(SpatiumUtils pl) throws IOException{
 		BannedPlayerConfig.setupBannedConfig(pl);

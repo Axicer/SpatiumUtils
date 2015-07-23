@@ -5,9 +5,9 @@ import java.io.IOException;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.axicer.SpatiumUtils.Commands.CommandManager;
+import fr.axicer.SpatiumUtils.Configs.ConfigManager;
 import fr.axicer.SpatiumUtils.Events.EventManager;
 import fr.axicer.SpatiumUtils.Utils.ChatUtils;
-import fr.axicer.SpatiumUtils.Utils.ConfigUtils;
 import fr.axicer.SpatiumUtils.Utils.Vault;
 
 public class SpatiumUtils extends JavaPlugin{
@@ -15,7 +15,7 @@ public class SpatiumUtils extends JavaPlugin{
 		saveDefaultConfig();// needed for create plugins's config file. 
 		
 		try {
-			ConfigUtils.setupConfigFiles(this);
+			ConfigManager.setupConfigFiles(this);
 		} catch (IOException e) {
 			getLogger().severe("Les configs n'ont pas reussi a etre crées !");
 			e.printStackTrace();

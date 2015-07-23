@@ -4,17 +4,17 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerLoginEvent;
 
-import fr.axicer.SpatiumUtils.Utils.ConfigUtils;
+import fr.axicer.SpatiumUtils.Configs.ConfigManager;
 
 public class PlayerLogin implements Listener {
 	
 	@EventHandler
 	public void onPlayerLogin(PlayerLoginEvent ev){
-		if(ConfigUtils.getbannedPlayerConfig().getStringList("banned").contains(ev.getPlayer().getName()) || ConfigUtils.getbannedUUIDPlayerConfig().getStringList("banned").contains(ev.getPlayer().getUniqueId().toString())){
+		if(ConfigManager.getbannedPlayerConfig().getStringList("banned").contains(ev.getPlayer().getName()) || ConfigManager.getbannedUUIDPlayerConfig().getStringList("banned").contains(ev.getPlayer().getUniqueId().toString())){
 			ev.disallow(PlayerLoginEvent.Result.KICK_OTHER, "Tu es banni(e) !");
 		}
-		if(ConfigUtils.getMaintenanceConfig().getBoolean("activated")){
-			if(!ConfigUtils.getMaintenanceConfig().getStringList("authorized").contains(ev.getPlayer().getName())){
+		if(ConfigManager.getMaintenanceConfig().getBoolean("activated")){
+			if(!ConfigManager.getMaintenanceConfig().getStringList("authorized").contains(ev.getPlayer().getName())){
 				ev.disallow(PlayerLoginEvent.Result.KICK_OTHER, "Le serveur est en maintenance !");
 			}
 		}

@@ -7,8 +7,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import fr.axicer.SpatiumUtils.Configs.ConfigManager;
 import fr.axicer.SpatiumUtils.Utils.ChatUtils;
-import fr.axicer.SpatiumUtils.Utils.ConfigUtils;
 import fr.axicer.SpatiumUtils.Utils.Vault;
 
 public class MaintenanceCommand implements CommandExecutor {
@@ -17,15 +17,15 @@ public class MaintenanceCommand implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String label,String[] args) {
 		if(sender.isOp() || Vault.getPermissions().has(sender, "spatium.maintenance") || Vault.getPermissions().has(sender, "spatium.*")){
 			if(args.length == 0){
-				if(ConfigUtils.getMaintenanceConfig().getBoolean("activated")){
-					ConfigUtils.getMaintenanceConfig().set("activated", false);
-					ConfigUtils.saveMaintenanceConfig();
+				if(ConfigManager.getMaintenanceConfig().getBoolean("activated")){
+					ConfigManager.getMaintenanceConfig().set("activated", false);
+					ConfigManager.saveMaintenanceConfig();
 					sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"Le mode maintenance a été désactivé !");
 				}else{
-					ConfigUtils.getMaintenanceConfig().set("activated", true);
-					ConfigUtils.saveMaintenanceConfig();
+					ConfigManager.getMaintenanceConfig().set("activated", true);
+					ConfigManager.saveMaintenanceConfig();
 					for(Player player : Bukkit.getOnlinePlayers()){
-						if(player.getName() != sender.getName() && !ConfigUtils.getMaintenanceConfig().getStringList("authorized").contains(player.getName())){
+						if(player.getName() != sender.getName() && !ConfigManager.getMaintenanceConfig().getStringList("authorized").contains(player.getName())){
 							player.kickPlayer("Le serveur est en maintenance, veuillez revenir plus tard.");
 						}
 					}

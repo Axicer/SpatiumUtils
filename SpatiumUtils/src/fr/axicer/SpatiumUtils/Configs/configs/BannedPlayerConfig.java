@@ -1,4 +1,4 @@
-package fr.axicer.SpatiumUtils.Utils.config;
+package fr.axicer.SpatiumUtils.Configs.configs;
 
 import java.io.File;
 import java.io.IOException;

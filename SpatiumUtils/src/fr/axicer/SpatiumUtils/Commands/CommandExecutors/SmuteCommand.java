@@ -9,8 +9,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import fr.axicer.SpatiumUtils.Configs.ConfigManager;
 import fr.axicer.SpatiumUtils.Utils.ChatUtils;
-import fr.axicer.SpatiumUtils.Utils.ConfigUtils;
 import fr.axicer.SpatiumUtils.Utils.Vault;
 
 public class SmuteCommand implements CommandExecutor {
@@ -25,11 +25,11 @@ public class SmuteCommand implements CommandExecutor {
 					target = Bukkit.getPlayer(args[0]);
 				}catch(Exception ex){}
 				if(target != null){
-					if(!ConfigUtils.getMutedPlayerConfig().getStringList("muted").contains(target.getName())){
-						List<String> list = ConfigUtils.getMutedPlayerConfig().getStringList("muted");
+					if(!ConfigManager.getMutedPlayerConfig().getStringList("muted").contains(target.getName())){
+						List<String> list = ConfigManager.getMutedPlayerConfig().getStringList("muted");
 						list.add(target.getName());
-						ConfigUtils.getMutedPlayerConfig().set("muted", list);
-						ConfigUtils.saveMutedPlayerConfig();
+						ConfigManager.getMutedPlayerConfig().set("muted", list);
+						ConfigManager.saveMutedPlayerConfig();
 						target.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"Tu as été mute !");
 						sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GRAY+"Le joueur "+target.getDisplayName()+ChatColor.GREEN+" a été mute !");
 					}else{

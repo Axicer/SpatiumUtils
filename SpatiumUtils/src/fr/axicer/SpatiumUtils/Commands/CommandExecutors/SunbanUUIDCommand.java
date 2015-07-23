@@ -9,8 +9,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
+import fr.axicer.SpatiumUtils.Configs.ConfigManager;
 import fr.axicer.SpatiumUtils.Utils.ChatUtils;
-import fr.axicer.SpatiumUtils.Utils.ConfigUtils;
 import fr.axicer.SpatiumUtils.Utils.Vault;
 
 public class SunbanUUIDCommand implements CommandExecutor {
@@ -25,11 +25,11 @@ public class SunbanUUIDCommand implements CommandExecutor {
 					target = Bukkit.getOfflinePlayer(args[0]);
 				}catch(Exception ex){}
 				if(target != null){
-					if(ConfigUtils.getbannedUUIDPlayerConfig().getStringList("banned").contains(target.getUniqueId().toString())){
-						List<String> list = ConfigUtils.getbannedUUIDPlayerConfig().getStringList("banned");
+					if(ConfigManager.getbannedUUIDPlayerConfig().getStringList("banned").contains(target.getUniqueId().toString())){
+						List<String> list = ConfigManager.getbannedUUIDPlayerConfig().getStringList("banned");
 						list.remove(target.getUniqueId().toString());
-						ConfigUtils.getbannedUUIDPlayerConfig().set("banned", list);
-						ConfigUtils.saveBannedUUIDPlayerConfig();
+						ConfigManager.getbannedUUIDPlayerConfig().set("banned", list);
+						ConfigManager.saveBannedUUIDPlayerConfig();
 						sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"Le joueur a été débanni !");
 					}else{
 						sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"Le joueur n'est pas banni !");

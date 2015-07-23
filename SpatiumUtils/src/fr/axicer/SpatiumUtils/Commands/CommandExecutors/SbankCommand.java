@@ -7,8 +7,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
+import fr.axicer.SpatiumUtils.Configs.ConfigManager;
 import fr.axicer.SpatiumUtils.Utils.ChatUtils;
-import fr.axicer.SpatiumUtils.Utils.ConfigUtils;
 import fr.axicer.SpatiumUtils.Utils.Vault;
 
 public class SbankCommand implements CommandExecutor {
@@ -25,8 +25,8 @@ public class SbankCommand implements CommandExecutor {
 							player = Bukkit.getOfflinePlayer(args[1]);
 						}catch(Exception e){}
 						if(player != null){
-							if(ConfigUtils.getMoneyConfig().getConfigurationSection("players").contains(player.getUniqueId().toString())){
-								int playerMoney = ConfigUtils.getMoneyConfig().getInt("players."+player.getUniqueId().toString());
+							if(ConfigManager.getMoneyConfig().getConfigurationSection("players").contains(player.getUniqueId().toString())){
+								int playerMoney = ConfigManager.getMoneyConfig().getInt("players."+player.getUniqueId().toString());
 								sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"La somme d'argent de "+ChatColor.GOLD+player.getName()+ChatColor.GREEN+" est de "+ChatColor.GOLD+playerMoney+"€");
 							}else{
 								sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"Le joueur est introuvable dans la config !");
@@ -49,7 +49,7 @@ public class SbankCommand implements CommandExecutor {
 								player = Bukkit.getOfflinePlayer(args[1]);
 							}catch(Exception e){}
 							if(player != null){
-								int lastPlayerMoney = ConfigUtils.getMoneyConfig().getInt("players."+player.getUniqueId().toString());
+								int lastPlayerMoney = ConfigManager.getMoneyConfig().getInt("players."+player.getUniqueId().toString());
 								int addedValue = 0;
 								try{
 									addedValue = Integer.parseInt(args[2]);
@@ -61,8 +61,8 @@ public class SbankCommand implements CommandExecutor {
 									if(newValue < 0){
 										sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"La somme du joueur ne peut pas depasser "+ChatColor.GOLD+Integer.MAX_VALUE);
 									}else{
-										ConfigUtils.getMoneyConfig().set("players."+player.getUniqueId().toString(), newValue);
-										ConfigUtils.saveMoneyConfig();
+										ConfigManager.getMoneyConfig().set("players."+player.getUniqueId().toString(), newValue);
+										ConfigManager.saveMoneyConfig();
 										sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"La somme d'argent de "+ChatColor.GOLD+player.getName()+ChatColor.GREEN+" est maintenant de "+ChatColor.GOLD+newValue+"€");
 									}
 								}
@@ -79,14 +79,14 @@ public class SbankCommand implements CommandExecutor {
 								player = Bukkit.getOfflinePlayer(args[1]);
 							}catch(Exception e){}
 							if(player != null){
-								int lastPlayerMoney = ConfigUtils.getMoneyConfig().getInt("players."+player.getUniqueId().toString());
+								int lastPlayerMoney = ConfigManager.getMoneyConfig().getInt("players."+player.getUniqueId().toString());
 								int removedValue = Integer.parseInt(args[2]);
 								int newValue = lastPlayerMoney-removedValue;
 								if(newValue < 0){
 									sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"La somme du joueur ne peut pas etre inferieur à "+ChatColor.GOLD+"0");
 								}else{
-									ConfigUtils.getMoneyConfig().set("players."+player.getUniqueId().toString(), newValue);
-									ConfigUtils.saveMoneyConfig();
+									ConfigManager.getMoneyConfig().set("players."+player.getUniqueId().toString(), newValue);
+									ConfigManager.saveMoneyConfig();
 									sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"La somme d'argent de "+ChatColor.GOLD+player.getName()+ChatColor.GREEN+" est maintenant de "+ChatColor.GOLD+newValue+"€");
 								}
 							}else{

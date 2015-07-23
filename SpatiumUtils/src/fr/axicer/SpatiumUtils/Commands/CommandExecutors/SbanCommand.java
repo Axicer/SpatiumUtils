@@ -9,8 +9,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import fr.axicer.SpatiumUtils.Configs.ConfigManager;
 import fr.axicer.SpatiumUtils.Utils.ChatUtils;
-import fr.axicer.SpatiumUtils.Utils.ConfigUtils;
 import fr.axicer.SpatiumUtils.Utils.Vault;
 
 public class SbanCommand implements CommandExecutor {
@@ -25,11 +25,11 @@ public class SbanCommand implements CommandExecutor {
 					target = Bukkit.getPlayer(args[0]);
 				}catch(Exception ex){}
 				if(target != null){
-					if(!ConfigUtils.getbannedPlayerConfig().getStringList("banned").contains(target.getName())){
-						List<String> list = ConfigUtils.getbannedPlayerConfig().getStringList("banned");
+					if(!ConfigManager.getbannedPlayerConfig().getStringList("banned").contains(target.getName())){
+						List<String> list = ConfigManager.getbannedPlayerConfig().getStringList("banned");
 						list.add(target.getName());
-						ConfigUtils.getbannedPlayerConfig().set("banned", list);
-						ConfigUtils.saveBannedPlayerConfig();
+						ConfigManager.getbannedPlayerConfig().set("banned", list);
+						ConfigManager.saveBannedPlayerConfig();
 						target.kickPlayer("Tu as été banni par "+sender.getName());
 						sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"Le joueur a été banni !");
 					}else{
