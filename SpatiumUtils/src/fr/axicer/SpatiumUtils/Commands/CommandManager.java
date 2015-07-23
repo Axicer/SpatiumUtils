@@ -5,6 +5,7 @@ import fr.axicer.SpatiumUtils.Commands.CommandExecutors.BifleCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.FakeJoinCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.FakeLeftCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.FeuerFreiCommand;
+import fr.axicer.SpatiumUtils.Commands.CommandExecutors.GravityGunCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.InviCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.MaintenanceCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.MoonCommand;
@@ -42,5 +43,6 @@ public class CommandManager {
 		pl.getCommand("feuerfrei").setExecutor(new FeuerFreiCommand());
 		pl.getCommand("sbank").setExecutor(new SbankCommand());
 		pl.getCommand("moon").setExecutor(new MoonCommand());
+		pl.getCommand("gravitygun").setExecutor(new GravityGunCommand());
 	}
 }

@@ -62,3 +62,6 @@ commands:
   moon:
     description: active la gravite de la lune !
     usage: /moon
+  gravitygun:
+    description: donne un gravitygun !
+    usage: /gravitygun
