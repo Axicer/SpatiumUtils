@@ -17,8 +17,10 @@ import fr.axicer.SpatiumUtils.Commands.CommandExecutors.RainCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SbanCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SbanUUIDCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SbankCommand;
+import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SetSpawnCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SkickCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SmuteCommand;
+import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SpawnCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SreloadCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SunCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SunbanCommand;
@@ -52,5 +54,7 @@ public class CommandManager {
 		pl.getCommand("night").setExecutor(new NightCommand());
 		pl.getCommand("sun").setExecutor(new SunCommand());
 		pl.getCommand("rain").setExecutor(new RainCommand());
+		pl.getCommand("setspawn").setExecutor(new SetSpawnCommand(pl));
+		pl.getCommand("spawn").setExecutor(new SpawnCommand(pl));
 	}
 }

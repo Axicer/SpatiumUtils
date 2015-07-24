@@ -77,3 +77,9 @@ commands:
   rain:
     description: met la pluie !
     usage: /rain
+  setspawn:
+    description: defini le point de spawn
+    usage: /setspawn
+  spawn:
+    description: teleporte au spawn
+    usage: /spawn

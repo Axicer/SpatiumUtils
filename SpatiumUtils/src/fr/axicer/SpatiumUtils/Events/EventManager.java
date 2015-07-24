@@ -12,21 +12,23 @@ import fr.axicer.SpatiumUtils.Events.EventsListener.PlayerJoin;
 import fr.axicer.SpatiumUtils.Events.EventsListener.PlayerLogin;
 import fr.axicer.SpatiumUtils.Events.EventsListener.PlayerMove;
 import fr.axicer.SpatiumUtils.Events.EventsListener.PlayerQuit;
+import fr.axicer.SpatiumUtils.Events.EventsListener.PlayerRespawn;
 import fr.axicer.SpatiumUtils.Events.EventsListener.ServerListPing;
 
 public class EventManager {
 	
-	public static void registersEvents(SpatiumUtils sp){
-		PluginManager pm = sp.getServer().getPluginManager();
-		pm.registerEvents(new PlayerJoin(), sp);
-		pm.registerEvents(new PlayerQuit(), sp);
-		pm.registerEvents(new PlayerLogin(), sp);
-		pm.registerEvents(new PlayerChat(), sp);
-		pm.registerEvents(new ServerListPing(), sp);
-		pm.registerEvents(new PlayerCommandPreProcess(sp), sp);
-		pm.registerEvents(new EntityDamageByEntity(), sp);
-		pm.registerEvents(new PlayerMove(), sp);
-		pm.registerEvents(new EntityDamage(), sp);
-		pm.registerEvents(new PlayerInteract(), sp);
+	public static void registersEvents(SpatiumUtils pl){
+		PluginManager pm = pl.getServer().getPluginManager();
+		pm.registerEvents(new PlayerJoin(), pl);
+		pm.registerEvents(new PlayerQuit(), pl);
+		pm.registerEvents(new PlayerLogin(), pl);
+		pm.registerEvents(new PlayerChat(), pl);
+		pm.registerEvents(new ServerListPing(), pl);
+		pm.registerEvents(new PlayerCommandPreProcess(pl), pl);
+		pm.registerEvents(new EntityDamageByEntity(), pl);
+		pm.registerEvents(new PlayerMove(), pl);
+		pm.registerEvents(new EntityDamage(), pl);
+		pm.registerEvents(new PlayerInteract(), pl);
+		pm.registerEvents(new PlayerRespawn(pl), pl);
 	}
 }

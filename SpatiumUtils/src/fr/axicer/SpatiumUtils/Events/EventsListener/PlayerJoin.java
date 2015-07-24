@@ -15,5 +15,4 @@ public class PlayerJoin implements Listener {
 		Player player = ev.getPlayer();
 		ev.setJoinMessage(ChatUtils.getPluginPrefix()+player.getDisplayName()+ChatColor.GREEN+" a rejoint la partie !");
 	}
-	
 }
