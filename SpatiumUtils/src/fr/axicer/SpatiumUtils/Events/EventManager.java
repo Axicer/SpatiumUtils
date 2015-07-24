@@ -17,7 +17,7 @@ import fr.axicer.SpatiumUtils.Events.EventsListener.ServerListPing;
 
 public class EventManager {
 	
-	public static void registersEvents(SpatiumUtils pl){
+	public static void registersEvents(SpatiumUtils pl){ // register all Listeners
 		PluginManager pm = pl.getServer().getPluginManager();
 		pm.registerEvents(new PlayerJoin(), pl);
 		pm.registerEvents(new PlayerQuit(), pl);
