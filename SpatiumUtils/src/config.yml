@@ -29,6 +29,7 @@
 # /rain --> spatium.rain
 # /setspawn --> spatium.setspawn
 # /spawn --> spatium.spawn
+# /untarget --> spatium.untarget
 #
 ######################################
 #             Config                 #

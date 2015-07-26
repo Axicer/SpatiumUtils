@@ -83,3 +83,6 @@ commands:
   spawn:
     description: teleporte au spawn
     usage: /spawn
+  untarget:
+    description: desactiver/activer le target des mobs
+    usage: /untarget

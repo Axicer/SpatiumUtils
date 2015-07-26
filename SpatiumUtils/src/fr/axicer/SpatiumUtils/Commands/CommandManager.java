@@ -27,6 +27,7 @@ import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SunbanCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SunbanUUIDCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SunmuteCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.UUIDCommand;
+import fr.axicer.SpatiumUtils.Commands.CommandExecutors.UntargetCommand;
 
 public class CommandManager {
 	public static void registerCommands(SpatiumUtils pl){
@@ -56,5 +57,6 @@ public class CommandManager {
 		pl.getCommand("rain").setExecutor(new RainCommand());
 		pl.getCommand("setspawn").setExecutor(new SetSpawnCommand(pl));
 		pl.getCommand("spawn").setExecutor(new SpawnCommand(pl));
+		pl.getCommand("untarget").setExecutor(new UntargetCommand());
 	}
 }

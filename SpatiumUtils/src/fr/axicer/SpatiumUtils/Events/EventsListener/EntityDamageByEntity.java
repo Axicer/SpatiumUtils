@@ -1,5 +1,6 @@
 package fr.axicer.SpatiumUtils.Events.EventsListener;
 
+import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -10,7 +11,10 @@ public class EntityDamageByEntity implements Listener {
 	public void onEntityDamageByEntity(EntityDamageByEntityEvent ev){
 		if(!(ev.getEntity() instanceof Player)){
 			if(ev.getDamager() instanceof Player){
-				ev.setDamage(Integer.MAX_VALUE);
+				Player player = (Player) ev.getDamager();
+				if(player.getGameMode() == GameMode.CREATIVE){
+					ev.setDamage(Integer.MAX_VALUE);
+				}
 			}
 		}
 	}
