@@ -1,11 +1,12 @@
 package fr.axicer.SpatiumUtils.Utils;
 
-import org.bukkit.plugin.RegisteredServiceProvider;
-
-import fr.axicer.SpatiumUtils.SpatiumUtils;
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
+
+import org.bukkit.plugin.RegisteredServiceProvider;
+
+import fr.axicer.SpatiumUtils.SpatiumUtils;
 
 public class Vault {
 	private static Permission permission = null;

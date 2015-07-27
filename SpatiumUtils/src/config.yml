@@ -30,6 +30,7 @@
 # /setspawn --> spatium.setspawn
 # /spawn --> spatium.spawn
 # /untarget --> spatium.untarget
+# /nick --> spatium.nick
 #
 ######################################
 #             Config                 #
@@ -40,7 +41,7 @@ OPAuth:
 spawnpoint:
   world: world
   x: 0
-  y: 100
+  y: 0
   z: 0
   yaw: 0
   pitch: 0

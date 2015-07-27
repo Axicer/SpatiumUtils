@@ -38,7 +38,6 @@ public class SpatiumUtils extends JavaPlugin{
 			saveConfig();
 		}
 		
-		
 		EventManager.registersEvents(this);// register event
 		
 		CommandManager.registerCommands(this);// and register command functions

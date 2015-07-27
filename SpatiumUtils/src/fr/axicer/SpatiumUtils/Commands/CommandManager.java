@@ -11,6 +11,7 @@ import fr.axicer.SpatiumUtils.Commands.CommandExecutors.InviCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.MaintenanceCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.MoonCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.NameCommand;
+import fr.axicer.SpatiumUtils.Commands.CommandExecutors.NickCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.NightCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.PokeCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.RainCommand;
@@ -28,6 +29,8 @@ import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SunbanUUIDCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SunmuteCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.UUIDCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.UntargetCommand;
+import fr.axicer.SpatiumUtils.Commands.CommandTabCompleters.NickTabCompleter;
+import fr.axicer.SpatiumUtils.Commands.CommandTabCompleters.SbankTabCompleter;
 
 public class CommandManager {
 	public static void registerCommands(SpatiumUtils pl){
@@ -58,5 +61,9 @@ public class CommandManager {
 		pl.getCommand("setspawn").setExecutor(new SetSpawnCommand(pl));
 		pl.getCommand("spawn").setExecutor(new SpawnCommand(pl));
 		pl.getCommand("untarget").setExecutor(new UntargetCommand());
+		pl.getCommand("nick").setExecutor(new NickCommand());
+		
+		pl.getCommand("sbank").setTabCompleter(new SbankTabCompleter());
+		pl.getCommand("nick").setTabCompleter(new NickTabCompleter());
 	}
 }

@@ -10,6 +10,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 import fr.axicer.SpatiumUtils.SpatiumUtils;
+import fr.axicer.SpatiumUtils.Configs.ConfigManager;
 import fr.axicer.SpatiumUtils.Utils.ChatUtils;
 
 public class PlayerJoin implements Listener {
@@ -34,6 +35,10 @@ public class PlayerJoin implements Listener {
 												 config.getInt("spawnpoint.pitch")
 												)
 			);
+		}
+		if(ConfigManager.getMoneyConfig().getInt("players."+ev.getPlayer().getUniqueId().toString()) == 0){
+			ConfigManager.getMoneyConfig().set("players."+ev.getPlayer().getUniqueId().toString(), 0);
+			ConfigManager.saveMoneyConfig();
 		}
 	}
 }

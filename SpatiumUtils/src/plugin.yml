@@ -86,3 +86,6 @@ commands:
   untarget:
     description: desactiver/activer le target des mobs
     usage: /untarget
+  nick:
+    description: change de nom
+    usage: /nick (name) or reset
