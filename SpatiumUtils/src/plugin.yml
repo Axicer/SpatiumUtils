@@ -1,5 +1,5 @@
 name: SpatiumUtils
-version: 1.4
+version: 1.3.2
 author: Axicer
 main: fr.axicer.SpatiumUtils.SpatiumUtils
 depend: [Vault]
