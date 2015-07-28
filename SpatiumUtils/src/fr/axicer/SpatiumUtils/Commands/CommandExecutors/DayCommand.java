@@ -16,7 +16,12 @@ public class DayCommand implements CommandExecutor {
 		if(sender.isOp() || Vault.getPermissions().has(sender, "spatium.day") || Vault.getPermissions().has(sender, "spatium.*")){
 			if(sender instanceof Player){
 				Player player = (Player) sender;
-				player.getWorld().setTime(1000L);
+				if(args.length == 0){
+					player.getWorld().setTime(1000L);
+				}else{
+					sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"La syntaxe est incorrecte !");
+					sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/day"+ChatColor.RESET+"\".");
+				}
 			}else{
 				sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"Tu dois etre un joueur pour effectuer cette commande !");
 			}

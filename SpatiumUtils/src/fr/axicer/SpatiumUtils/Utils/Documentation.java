@@ -48,6 +48,7 @@ public class Documentation {
 					+ "/spawn --> spatium.spawn\n"
 					+ "/untarget --> spatium.untarget\n"
 					+ "/nick --> spatium.nick\n"
+					+ "/fw --> spatium.fw\n"
 					+ "\n"
 					+ "Il ne reste plus qu'a les installer ! =p");
 		}finally{

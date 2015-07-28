@@ -6,6 +6,7 @@ import fr.axicer.SpatiumUtils.Commands.CommandExecutors.DayCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.FakeJoinCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.FakeLeftCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.FeuerFreiCommand;
+import fr.axicer.SpatiumUtils.Commands.CommandExecutors.FwCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.GravityGunCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.InviCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.MaintenanceCommand;
@@ -62,6 +63,7 @@ public class CommandManager {
 		pl.getCommand("spawn").setExecutor(new SpawnCommand(pl));
 		pl.getCommand("untarget").setExecutor(new UntargetCommand());
 		pl.getCommand("nick").setExecutor(new NickCommand());
+		pl.getCommand("fw").setExecutor(new FwCommand());
 		
 		pl.getCommand("sbank").setTabCompleter(new SbankTabCompleter());
 		pl.getCommand("nick").setTabCompleter(new NickTabCompleter());

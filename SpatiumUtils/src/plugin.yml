@@ -89,3 +89,6 @@ commands:
   nick:
     description: change de nom
     usage: /nick (name) or reset
+  fw:
+    description: lance un feu d'artifice !
+    usage: /fw
