@@ -4,6 +4,7 @@
 # liste des personnes autorises a faire /op et /deop
 OPAuth:
 - putPlayerPseudoHere
+#ne pas toucher sauf cas de force majeure (preferez la commande /setspawn)
 spawnpoint:
   world: world
   x: 0
@@ -11,3 +12,5 @@ spawnpoint:
   z: 0
   yaw: 0
   pitch: 0
+# determine si les creepers font des degats sur la map
+creeperDamage: false

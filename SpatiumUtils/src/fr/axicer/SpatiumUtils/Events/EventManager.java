@@ -5,6 +5,7 @@ import org.bukkit.plugin.PluginManager;
 import fr.axicer.SpatiumUtils.SpatiumUtils;
 import fr.axicer.SpatiumUtils.Events.EventsListener.EntityDamage;
 import fr.axicer.SpatiumUtils.Events.EventsListener.EntityDamageByEntity;
+import fr.axicer.SpatiumUtils.Events.EventsListener.EntityExplode;
 import fr.axicer.SpatiumUtils.Events.EventsListener.EntityTarget;
 import fr.axicer.SpatiumUtils.Events.EventsListener.PlayerChat;
 import fr.axicer.SpatiumUtils.Events.EventsListener.PlayerCommandPreProcess;
@@ -34,5 +35,6 @@ public class EventManager {
 		pm.registerEvents(new PlayerRespawn(pl), pl);
 		pm.registerEvents(new EntityTarget(), pl);
 		pm.registerEvents(new PlayerInteractEntity(), pl);
+		pm.registerEvents(new EntityExplode(pl), pl);
 	}
 }
