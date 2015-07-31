@@ -95,3 +95,6 @@ commands:
   pay:
     description: payer un joueur !
     usage: /pay (player) [somme]
+  gm:
+    description: change le gamemode !
+    usage: /gm (gamemode) [player]

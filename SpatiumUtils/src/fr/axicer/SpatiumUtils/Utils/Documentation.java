@@ -50,6 +50,8 @@ public class Documentation {
 					+ "/nick --> spatium.nick\n"
 					+ "/fw --> spatium.fw\n"
 					+ "/pay --> spatium.pay\n"
+					+ "/gm --> spatium.gm\n"
+					+ "    |-> spatium.gm.other\n"
 					+ "\n"
 					+ "Il ne reste plus qu'a les installer ! =p");
 		}finally{
