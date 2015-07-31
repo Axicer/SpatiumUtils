@@ -14,11 +14,12 @@ import fr.axicer.SpatiumUtils.Commands.CommandExecutors.MoonCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.NameCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.NickCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.NightCommand;
+import fr.axicer.SpatiumUtils.Commands.CommandExecutors.PayCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.PokeCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.RainCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SbanCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SbanUUIDCommand;
-import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SbankCommand;
+import fr.axicer.SpatiumUtils.Commands.CommandExecutors.MoneyCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SetSpawnCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SkickCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SmuteCommand;
@@ -31,7 +32,7 @@ import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SunmuteCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.UUIDCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.UntargetCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandTabCompleters.NickTabCompleter;
-import fr.axicer.SpatiumUtils.Commands.CommandTabCompleters.SbankTabCompleter;
+import fr.axicer.SpatiumUtils.Commands.CommandTabCompleters.MoneyTabCompleter;
 
 public class CommandManager {
 	public static void registerCommands(SpatiumUtils pl){
@@ -52,7 +53,7 @@ public class CommandManager {
 		pl.getCommand("fakeleft").setExecutor(new FakeLeftCommand());
 		pl.getCommand("name").setExecutor(new NameCommand());
 		pl.getCommand("feuerfrei").setExecutor(new FeuerFreiCommand());
-		pl.getCommand("sbank").setExecutor(new SbankCommand());
+		pl.getCommand("money").setExecutor(new MoneyCommand());
 		pl.getCommand("moon").setExecutor(new MoonCommand());
 		pl.getCommand("gravitygun").setExecutor(new GravityGunCommand());
 		pl.getCommand("day").setExecutor(new DayCommand());
@@ -64,8 +65,9 @@ public class CommandManager {
 		pl.getCommand("untarget").setExecutor(new UntargetCommand());
 		pl.getCommand("nick").setExecutor(new NickCommand());
 		pl.getCommand("fw").setExecutor(new FwCommand());
+		pl.getCommand("pay").setExecutor(new PayCommand());;
 		
-		pl.getCommand("sbank").setTabCompleter(new SbankTabCompleter());
+		pl.getCommand("money").setTabCompleter(new MoneyTabCompleter());
 		pl.getCommand("nick").setTabCompleter(new NickTabCompleter());
 	}
 }

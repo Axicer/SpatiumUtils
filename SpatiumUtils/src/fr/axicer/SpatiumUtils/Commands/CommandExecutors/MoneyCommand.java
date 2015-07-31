@@ -11,7 +11,7 @@ import fr.axicer.SpatiumUtils.Configs.ConfigManager;
 import fr.axicer.SpatiumUtils.Utils.ChatUtils;
 import fr.axicer.SpatiumUtils.Utils.Vault;
 
-public class SbankCommand implements CommandExecutor {
+public class MoneyCommand implements CommandExecutor {
 
 	@SuppressWarnings("deprecation")
 	@Override
@@ -19,7 +19,7 @@ public class SbankCommand implements CommandExecutor {
 		if(args.length >= 2){
 			if(args.length == 2){
 				if(args[0].equalsIgnoreCase("get")){
-					if(sender.isOp() || Vault.getPermissions().has(sender, "spatium.sbank.get") || Vault.getPermissions().has(sender, "spatium.*")){
+					if(sender.isOp() || Vault.getPermissions().has(sender, "spatium.money.get") || Vault.getPermissions().has(sender, "spatium.*")){
 						OfflinePlayer player = null;
 						try{
 							player = Bukkit.getOfflinePlayer(args[1]);
@@ -39,11 +39,11 @@ public class SbankCommand implements CommandExecutor {
 					}
 				}else{
 					sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"La syntaxe est incorrecte !");
-					sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/sbank get|add|remove (player) [somme]"+ChatColor.RESET+"\".");
+					sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/money get|add|remove (player) [somme]"+ChatColor.RESET+"\".");
 				}
 			}else if(args.length == 3){
 					if(args[0].equalsIgnoreCase("add")){
-						if(sender.isOp() || Vault.getPermissions().has(sender, "spatium.sbank.add") || Vault.getPermissions().has(sender, "spatium.*")){
+						if(sender.isOp() || Vault.getPermissions().has(sender, "spatium.money.add") || Vault.getPermissions().has(sender, "spatium.*")){
 							OfflinePlayer player = null;
 							try{
 								player = Bukkit.getOfflinePlayer(args[1]);
@@ -73,7 +73,7 @@ public class SbankCommand implements CommandExecutor {
 							sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"Tu n'es pas autorisé a effectuer cette commande !");
 						}
 					}else if(args[0].equalsIgnoreCase("remove")){
-						if(sender.isOp() || Vault.getPermissions().has(sender, "spatium.sbank.remove") || Vault.getPermissions().has(sender, "spatium.*")){
+						if(sender.isOp() || Vault.getPermissions().has(sender, "spatium.money.remove") || Vault.getPermissions().has(sender, "spatium.*")){
 							OfflinePlayer player = null;
 							try{
 								player = Bukkit.getOfflinePlayer(args[1]);
@@ -97,15 +97,15 @@ public class SbankCommand implements CommandExecutor {
 						}
 					}else{
 						sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"La syntaxe est incorrecte !");
-						sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/sbank get|add|remove (player) [somme]"+ChatColor.RESET+"\".");
+						sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/money get|add|remove (player) [somme]"+ChatColor.RESET+"\".");
 					}
 			}else{
 				sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"La syntaxe est incorrecte !");
-				sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/sbank get|add|remove (player) [somme]"+ChatColor.RESET+"\".");
+				sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/money get|add|remove (player) [somme]"+ChatColor.RESET+"\".");
 			}
 		}else{
 			sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"La syntaxe est incorrecte !");
-			sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/sbank get|add|remove (player) [somme]"+ChatColor.RESET+"\".");
+			sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/money get|add|remove (player) [somme]"+ChatColor.RESET+"\".");
 		}
 		return true;
 	}

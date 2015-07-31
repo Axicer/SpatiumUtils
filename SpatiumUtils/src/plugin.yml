@@ -56,9 +56,9 @@ commands:
   feuerfrei:
     description: BANG BANG !
     usage: /feuerfrei (player)
-  sbank:
+  money:
     description: commande de gestion de l'argent du serveur !
-    usage: /sbank get|add|remove (player) [somme]
+    usage: /money get|add|remove (player) [somme]
   moon:
     description: active la gravite de la lune !
     usage: /moon
@@ -92,3 +92,6 @@ commands:
   fw:
     description: lance un feu d'artifice !
     usage: /fw
+  pay:
+    description: payer un joueur !
+    usage: /pay (player) [somme]

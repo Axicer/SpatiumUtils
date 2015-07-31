@@ -36,9 +36,9 @@ public class Documentation {
 					+ "/sunbanuuid --> spatium.sunbanuuid\n"
 					+ "/sunmute --> spatium.sunmute\n"
 					+ "/uuid --> spatium.uuid\n"
-					+ "/sbank --> spatium.sbank.get\n"
-					+ "       |-> spatium.sbank.add\n"
-					+ "       |-> spatium.sbank.remove\n"
+					+ "/money --> spatium.money.get\n"
+					+ "       |-> spatium.money.add\n"
+					+ "       |-> spatium.money.remove\n"
 					+ "/gravitygun --> spatium.gravitygun\n"
 					+ "/day --> spatium.day\n"
 					+ "/night --> spatium.night\n"
@@ -49,6 +49,7 @@ public class Documentation {
 					+ "/untarget --> spatium.untarget\n"
 					+ "/nick --> spatium.nick\n"
 					+ "/fw --> spatium.fw\n"
+					+ "/pay --> spatium.pay\n"
 					+ "\n"
 					+ "Il ne reste plus qu'a les installer ! =p");
 		}finally{
