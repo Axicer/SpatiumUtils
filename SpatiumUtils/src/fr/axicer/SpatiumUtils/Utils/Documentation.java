@@ -52,6 +52,8 @@ public class Documentation {
 					+ "/pay --> spatium.pay\n"
 					+ "/gm --> spatium.gm\n"
 					+ "    |-> spatium.gm.other\n"
+					+ "/feed --> spatium.feed\n"
+					+ "      |-> spatium.feed.other\n"
 					+ "\n"
 					+ "Il ne reste plus qu'a les installer ! =p");
 		}finally{

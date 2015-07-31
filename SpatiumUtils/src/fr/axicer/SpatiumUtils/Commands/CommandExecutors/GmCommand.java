@@ -37,7 +37,7 @@ public class GmCommand implements CommandExecutor {
 						sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/gm (gamemode) [player]"+ChatColor.RESET+"\".");
 					}
 				}else if(args.length == 2){
-					if(Vault.getPermissions().has(sender, "spatium.gm.other") || Vault.getPermissions().has(sender, "spatium.*")){
+					if(sender.isOp() || Vault.getPermissions().has(sender, "spatium.gm.other") || Vault.getPermissions().has(sender, "spatium.*")){
 						Player target = null;
 						try{
 							target = Bukkit.getPlayer(args[1]);
@@ -71,7 +71,7 @@ public class GmCommand implements CommandExecutor {
 				}
 			}else{
 				if(args.length == 2){
-					if(Vault.getPermissions().has(sender, "spatium.gm.other") || Vault.getPermissions().has(sender, "spatium.*")){
+					if(sender.isOp() || Vault.getPermissions().has(sender, "spatium.gm.other") || Vault.getPermissions().has(sender, "spatium.*")){
 						Player target = null;
 						try{
 							target = Bukkit.getPlayer(args[1]);

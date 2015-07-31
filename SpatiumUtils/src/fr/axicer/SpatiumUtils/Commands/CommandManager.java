@@ -5,6 +5,7 @@ import fr.axicer.SpatiumUtils.Commands.CommandExecutors.BifleCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.DayCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.FakeJoinCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.FakeLeftCommand;
+import fr.axicer.SpatiumUtils.Commands.CommandExecutors.FeedCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.FeuerFreiCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.FwCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.GmCommand;
@@ -38,6 +39,7 @@ import fr.axicer.SpatiumUtils.Commands.CommandTabCompleters.MoneyTabCompleter;
 
 public class CommandManager {
 	public static void registerCommands(SpatiumUtils pl){
+		//setting command executors
 		pl.getCommand("sban").setExecutor(new SbanCommand());
 		pl.getCommand("sunban").setExecutor(new SunbanCommand());
 		pl.getCommand("sbanuuid").setExecutor(new SbanUUIDCommand());
@@ -69,7 +71,9 @@ public class CommandManager {
 		pl.getCommand("fw").setExecutor(new FwCommand());
 		pl.getCommand("pay").setExecutor(new PayCommand());;
 		pl.getCommand("gm").setExecutor(new GmCommand());
+		pl.getCommand("feed").setExecutor(new FeedCommand());
 		
+		// setting tab executors
 		pl.getCommand("money").setTabCompleter(new MoneyTabCompleter());
 		pl.getCommand("nick").setTabCompleter(new NickTabCompleter());
 		pl.getCommand("gm").setTabCompleter(new GmTabCompleter());

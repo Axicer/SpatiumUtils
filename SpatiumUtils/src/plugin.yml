@@ -98,3 +98,6 @@ commands:
   gm:
     description: change le gamemode !
     usage: /gm (gamemode) [player]
+  feed:
+    description: nourri un joueur !
+    usage: /feed [player]
