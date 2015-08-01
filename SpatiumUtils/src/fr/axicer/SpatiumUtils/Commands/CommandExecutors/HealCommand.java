@@ -10,31 +10,27 @@ import org.bukkit.entity.Player;
 import fr.axicer.SpatiumUtils.Utils.ChatUtils;
 import fr.axicer.SpatiumUtils.Utils.Vault;
 
-public class FeedCommand implements CommandExecutor {
+public class HealCommand implements CommandExecutor {
 
 	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		if(sender.isOp() || Vault.getPermissions().has(sender, "spatium.feed") || Vault.getPermissions().has(sender, "spatium.*")){
+		if(sender.isOp() || Vault.getPermissions().has(sender, "spatium.heal") || Vault.getPermissions().has(sender, "spatium.*")){
 			if(sender instanceof Player){
 				Player player = (Player) sender;
 				if(args.length == 0){
-					player.setExhaustion(5F);
-					player.setFoodLevel(21);
-					player.setSaturation(10);
-					player.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"Tu as été nourri !");
+					player.setHealth(20);
+					player.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"Tu as été soigné !");
 				}else if(args.length == 1){
-					if(player.isOp() || Vault.getPermissions().has(player, "spatium.feed.other")){
+					if(player.isOp() || Vault.getPermissions().has(player, "spatium.heal.other")){
 						Player target = null;
 						try{
 							target = Bukkit.getPlayer(args[0]);
 						}catch(Exception e){}
 						if(target != null){
-							target.setExhaustion(5F);
-							target.setFoodLevel(21);
-							target.setSaturation(10);
-							player.sendMessage(ChatUtils.getPluginPrefix()+target.getDisplayName()+ChatColor.GREEN+" a été nourri");
-							target.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"Tu as été nourri !");
+							target.setHealth(20);
+							player.sendMessage(ChatUtils.getPluginPrefix()+target.getDisplayName()+ChatColor.GREEN+" a été soigné");
+							target.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"Tu as été soigné !");
 						}else{
 							player.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"Le joueur est introuvable !");
 						}
@@ -43,21 +39,19 @@ public class FeedCommand implements CommandExecutor {
 					}
 				}else{
 					sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"La syntaxe est incorrecte !");
-					sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/feed [player]"+ChatColor.RESET+"\".");
+					sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/heal [player]"+ChatColor.RESET+"\".");
 				}
 			}else{
 				if(args.length == 1){
-					if(sender.isOp() || Vault.getPermissions().has(sender, "spatium.feed.other")){
+					if(sender.isOp() || Vault.getPermissions().has(sender, "spatium.heal.other")){
 						Player target = null;
 						try{
 							target = Bukkit.getPlayer(args[0]);
 						}catch(Exception e){}
 						if(target != null){
-							target.setExhaustion(5F);
-							target.setFoodLevel(21);
-							target.setSaturation(10);
-							sender.sendMessage(ChatUtils.getPluginPrefix()+target.getDisplayName()+ChatColor.GREEN+" a été nourri");
-							target.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"Tu as été nourri !");
+							target.setHealth(20);
+							sender.sendMessage(ChatUtils.getPluginPrefix()+target.getDisplayName()+ChatColor.GREEN+" a été soigné");
+							target.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"Tu as été soigné !");
 						}else{
 							sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"Le joueur est introuvable !");
 						}
@@ -66,7 +60,7 @@ public class FeedCommand implements CommandExecutor {
 					}
 				}else{
 					sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"La syntaxe est incorrecte !");
-					sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/feed [player]"+ChatColor.RESET+"\".");
+					sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/heal [player]"+ChatColor.RESET+"\".");
 				}
 			}
 		}else{

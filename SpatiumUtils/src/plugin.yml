@@ -101,3 +101,6 @@ commands:
   feed:
     description: nourri un joueur !
     usage: /feed [player]
+  heal:
+    description: soigne un joueur !
+    usage: /heal [player]
