@@ -44,7 +44,19 @@ public class KitLoader {
 					}else if(itemAmount == 0){
 						Bukkit.getLogger().severe("Le nombre d'item est invalide pour : "+item+" !");
 					}else{
-						ItemStack newItem = new ItemStack(itemMaterial, itemAmount);
+						ItemStack newItem = null;
+						if(ConfigManager.getKitConfig().getInt(root+".data") != 0){
+							try{
+								byte data = (byte) ConfigManager.getKitConfig().getInt(root+".data");
+								newItem = new ItemStack(itemMaterial, itemAmount, data);
+							}catch(Exception e){
+								Bukkit.getLogger().warning("Impossible d'appliquer la datavalue pour : "+item+" !");
+								Bukkit.getLogger().warning("l'item sera chargé avec une datavalue de 0 !");
+								newItem = new ItemStack(itemMaterial, itemAmount);
+							}
+						}else{
+							newItem = new ItemStack(itemMaterial, itemAmount);
+						}
 						ItemMeta newItemMeta = newItem.getItemMeta();
 						newItemMeta.setDisplayName(itemName);
 						if(ConfigManager.getKitConfig().getStringList(root+".lores").size() != 0){

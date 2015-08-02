@@ -43,6 +43,11 @@ public class KitConfig {
 			kitConfig.set("kits.default.sword.lores", swordLores);
 			kitConfig.set("kits.default.sword.enchantment", swordEnchantment);
 			
+			kitConfig.set("kits.default.wool.name", "&eWool avec data value !");
+			kitConfig.set("kits.default.wool.material", Material.WOOL.toString());
+			kitConfig.set("kits.default.wool.amount", 5);
+			kitConfig.set("kits.default.wool.data", 13);
+			
 			saveKitConfig();
 		}else{
 			kitConfig = YamlConfiguration.loadConfiguration(kitConfigFile);
