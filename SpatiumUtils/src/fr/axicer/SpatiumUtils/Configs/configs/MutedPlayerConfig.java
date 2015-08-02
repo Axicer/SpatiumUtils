@@ -34,8 +34,4 @@ public class MutedPlayerConfig {
 	public static YamlConfiguration getMutedPlayerConfig(){
 		return mutedPlayerConfig;
 	}
-	
-	public static void reloadMutedPlayerConfig(){
-		mutedPlayerConfig = YamlConfiguration.loadConfiguration(mutedPlayerConfigFile);
-	}
 }

@@ -34,8 +34,4 @@ public class BannedUUIDPlayerConfig {
 	public static YamlConfiguration getBannedUUIDPlayerConfig(){
 		return bannedUUIDPlayerConfig;
 	}
-	
-	public static void reloadBannedUUIDPlayerConfig(){
-		bannedUUIDPlayerConfig = YamlConfiguration.loadConfiguration(bannedUUIDPlayerConfigFile);
-	}
 }

@@ -37,8 +37,4 @@ public class MaintenanceConfig {
 	public static YamlConfiguration getMaintenanceConfig(){
 		return MaintenanceConfig;
 	}
-	
-	public static void reloadMaintenanceConfig(){
-		MaintenanceConfig = YamlConfiguration.loadConfiguration(MaintenanceConfigFile);
-	}
 }

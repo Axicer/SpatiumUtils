@@ -1,5 +1,7 @@
 package fr.axicer.SpatiumUtils.Commands.CommandExecutors;
 
+import java.io.IOException;
+
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -21,7 +23,11 @@ public class SreloadCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label,String[] args) {
 		if(sender.isOp() || Vault.getPermissions().has(sender, "spatium.sreload") || Vault.getPermissions().has(sender, "spatium.*")){
-			ConfigManager.reloadConfigFile(pl);
+			try {
+				ConfigManager.reloadConfigFile(pl);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 			sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"Les configs on été reload !");
 		}else{
 			sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"Tu n'es pas autorisé a effectuer cette commande !");

@@ -60,7 +60,4 @@ public class KitConfig {
 	public static YamlConfiguration getKitConfig(){
 		return kitConfig;
 	}
-	public static void reloadKitConfig(){
-		kitConfig = YamlConfiguration.loadConfiguration(kitConfigFile);
-	}
 }

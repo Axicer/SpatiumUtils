@@ -31,8 +31,4 @@ public class MoneyConfig {
 	public static YamlConfiguration getMoneyConfig(){
 		return moneyConfig;
 	}
-	
-	public static void reloadMoneyConfig(){
-		moneyConfig = YamlConfiguration.loadConfiguration(moneyConfigFile);
-	}
 }

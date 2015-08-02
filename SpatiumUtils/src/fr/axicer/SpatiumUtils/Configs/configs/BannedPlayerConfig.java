@@ -34,8 +34,4 @@ public class BannedPlayerConfig {
 	public static YamlConfiguration getBannedPlayerConfig(){
 		return bannedPlayerConfig;
 	}
-	
-	public static void reloadBannedPlayerConfig(){
-		bannedPlayerConfig = YamlConfiguration.loadConfiguration(bannedPlayerConfigFile);
-	}
 }

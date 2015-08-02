@@ -24,13 +24,13 @@ public class ConfigManager {
 		KitConfig.setupKitConfig(pl);
 	}
 	
-	public static void reloadConfigFile(SpatiumUtils pl){
-		BannedPlayerConfig.reloadBannedPlayerConfig();
-		BannedUUIDPlayerConfig.reloadBannedUUIDPlayerConfig();
-		MutedPlayerConfig.reloadMutedPlayerConfig();
-		MaintenanceConfig.reloadMaintenanceConfig();
-		MoneyConfig.reloadMoneyConfig();
-		KitConfig.reloadKitConfig();
+	public static void reloadConfigFile(SpatiumUtils pl) throws IOException{
+		BannedPlayerConfig.setupBannedConfig(pl);
+		BannedUUIDPlayerConfig.setupBannedConfig(pl);
+		MaintenanceConfig.setupBannedConfig(pl);
+		MoneyConfig.setupBannedConfig(pl);
+		MutedPlayerConfig.setupBannedConfig(pl);
+		KitConfig.setupKitConfig(pl);
 		KitLoader.loadKits();
 		pl.reloadConfig();
 	}
