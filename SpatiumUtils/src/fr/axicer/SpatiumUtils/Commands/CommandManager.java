@@ -12,6 +12,7 @@ import fr.axicer.SpatiumUtils.Commands.CommandExecutors.GmCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.GravityGunCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.HealCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.InviCommand;
+import fr.axicer.SpatiumUtils.Commands.CommandExecutors.KitCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.MaintenanceCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.MoonCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.NameCommand;
@@ -35,6 +36,7 @@ import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SunmuteCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.UUIDCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.UntargetCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandTabCompleters.GmTabCompleter;
+import fr.axicer.SpatiumUtils.Commands.CommandTabCompleters.KitTabCompleter;
 import fr.axicer.SpatiumUtils.Commands.CommandTabCompleters.NickTabCompleter;
 import fr.axicer.SpatiumUtils.Commands.CommandTabCompleters.MoneyTabCompleter;
 
@@ -74,10 +76,12 @@ public class CommandManager {
 		pl.getCommand("gm").setExecutor(new GmCommand());
 		pl.getCommand("feed").setExecutor(new FeedCommand());
 		pl.getCommand("heal").setExecutor(new HealCommand());
+		pl.getCommand("kit").setExecutor(new KitCommand());
 		
 		// setting tab executors
 		pl.getCommand("money").setTabCompleter(new MoneyTabCompleter());
 		pl.getCommand("nick").setTabCompleter(new NickTabCompleter());
 		pl.getCommand("gm").setTabCompleter(new GmTabCompleter());
+		pl.getCommand("kit").setTabCompleter(new KitTabCompleter());
 	}
 }

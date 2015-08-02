@@ -10,6 +10,7 @@ import fr.axicer.SpatiumUtils.Commands.CommandManager;
 import fr.axicer.SpatiumUtils.Configs.ConfigManager;
 import fr.axicer.SpatiumUtils.Events.EventManager;
 import fr.axicer.SpatiumUtils.Utils.Documentation;
+import fr.axicer.SpatiumUtils.Utils.KitLoader;
 import fr.axicer.SpatiumUtils.Utils.Vault;
 
 public class SpatiumUtils extends JavaPlugin{
@@ -23,6 +24,8 @@ public class SpatiumUtils extends JavaPlugin{
 			getLogger().severe("Les configs n'ont pas reussi a etre crées !");
 			e.printStackTrace();
 		}// create config files and load them
+		
+		KitLoader.loadKits();
 		
 		Vault.setupPermissions(this);// vault setup
 		Vault.setupEconomy(this);

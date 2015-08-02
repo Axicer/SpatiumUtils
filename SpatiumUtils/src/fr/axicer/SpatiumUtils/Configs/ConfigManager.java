@@ -7,9 +7,11 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import fr.axicer.SpatiumUtils.SpatiumUtils;
 import fr.axicer.SpatiumUtils.Configs.configs.BannedPlayerConfig;
 import fr.axicer.SpatiumUtils.Configs.configs.BannedUUIDPlayerConfig;
+import fr.axicer.SpatiumUtils.Configs.configs.KitConfig;
 import fr.axicer.SpatiumUtils.Configs.configs.MaintenanceConfig;
 import fr.axicer.SpatiumUtils.Configs.configs.MoneyConfig;
 import fr.axicer.SpatiumUtils.Configs.configs.MutedPlayerConfig;
+import fr.axicer.SpatiumUtils.Utils.KitLoader;
 
 public class ConfigManager {
 	
@@ -19,6 +21,7 @@ public class ConfigManager {
 		MaintenanceConfig.setupBannedConfig(pl);
 		MoneyConfig.setupBannedConfig(pl);
 		MutedPlayerConfig.setupBannedConfig(pl);
+		KitConfig.setupKitConfig(pl);
 	}
 	
 	public static void reloadConfigFile(SpatiumUtils pl){
@@ -27,6 +30,8 @@ public class ConfigManager {
 		MutedPlayerConfig.reloadMutedPlayerConfig();
 		MaintenanceConfig.reloadMaintenanceConfig();
 		MoneyConfig.reloadMoneyConfig();
+		KitConfig.reloadKitConfig();
+		KitLoader.loadKits();
 		pl.reloadConfig();
 	}
 	
@@ -44,6 +49,9 @@ public class ConfigManager {
 	}
 	public static YamlConfiguration getMoneyConfig(){
 		return MoneyConfig.getMoneyConfig();
+	}
+	public static YamlConfiguration getKitConfig(){
+		return KitConfig.getKitConfig();
 	}
 	
 	public static void saveBannedPlayerConfig(){
@@ -77,6 +85,13 @@ public class ConfigManager {
 	public static void saveMoneyConfig(){
 		try{
 			MoneyConfig.saveMoneyConfig();
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+	}
+	public static void saveKitConfig(){
+		try{
+			KitConfig.saveKitConfig();
 		}catch(IOException e){
 			e.printStackTrace();
 		}

@@ -104,3 +104,6 @@ commands:
   heal:
     description: soigne un joueur !
     usage: /heal [player]
+  kit:
+    description: donne un kit !
+    usage: /kit (get|material|enchantment|list) [kits]
