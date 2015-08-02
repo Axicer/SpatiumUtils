@@ -7,6 +7,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 
+import fr.axicer.SpatiumUtils.Utils.KitLoader;
+
 public class KitTabCompleter implements TabCompleter {
 
 	@Override
@@ -18,6 +20,13 @@ public class KitTabCompleter implements TabCompleter {
 			tabComplete.add("enchantment");
 			tabComplete.add("list");
 			return tabComplete;
+		}else if(args.length == 2){
+			if(args[0].equalsIgnoreCase("get")){
+				for(String kit : KitLoader.getKits().keySet()){
+					tabComplete.add(kit);
+				}
+				return tabComplete;
+			}
 		}
 		return null;
 	}
