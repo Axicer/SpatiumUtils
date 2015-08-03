@@ -9,6 +9,7 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import fr.axicer.SpatiumUtils.Configs.ConfigManager;
 import fr.axicer.SpatiumUtils.Utils.ChatUtils;
 import fr.axicer.SpatiumUtils.Utils.KitLoader;
 import fr.axicer.SpatiumUtils.Utils.Vault;
@@ -31,7 +32,12 @@ public class KitCommand implements CommandExecutor {
 					}else if(args[0].equalsIgnoreCase("list")){
 						player.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.AQUA+"--Liste des kits diponible--");
 						for(String kit : KitLoader.getKits().keySet()){
+							String displayName = ConfigManager.getKitConfig().getString("kits."+kit+".displayName");
+							String description = ConfigManager.getKitConfig().getString("kits."+kit+".description");
 							player.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.WHITE+"- "+ChatColor.RED+kit);
+							sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.WHITE+"- "+ChatColor.RED+"|-> displayName: "+ChatColor.RESET+ChatColor.translateAlternateColorCodes('&', displayName));
+							sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.WHITE+"- "+ChatColor.RED+"|-> description: "+ChatColor.RESET+ChatColor.translateAlternateColorCodes('&', description));
+							player.sendMessage(ChatUtils.getPluginPrefix()+" ");
 						}
 					}else{
 						sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"La syntaxe est incorrecte !");
@@ -70,7 +76,12 @@ public class KitCommand implements CommandExecutor {
 					}else if(args[0].equalsIgnoreCase("list")){
 						sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.AQUA+"--== Liste des kits diponible ==--");
 						for(String kit : KitLoader.getKits().keySet()){
+							String displayName = ConfigManager.getKitConfig().getString("kits."+kit+".displayName");
+							String description = ConfigManager.getKitConfig().getString("kits."+kit+".description");
 							sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.WHITE+"- "+ChatColor.RED+kit);
+							sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.WHITE+"- "+ChatColor.RED+"|-> displayName: "+ChatColor.RESET+ChatColor.translateAlternateColorCodes('&', displayName));
+							sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.WHITE+"- "+ChatColor.RED+"|-> description: "+ChatColor.RESET+ChatColor.translateAlternateColorCodes('&', description));
+							sender.sendMessage(ChatUtils.getPluginPrefix()+" ");
 						}
 					}else{
 						sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"La syntaxe est incorrecte !");
