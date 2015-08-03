@@ -1,6 +1,3 @@
-######################################
-#             Config                 #
-######################################
 # liste des personnes autorises a faire /op et /deop
 OPAuth:
 - putPlayerPseudoHere
@@ -14,3 +11,5 @@ spawnpoint:
   pitch: 0
 # determine si les creepers font des degats sur la map
 creeperDamage: false
+# determine si le prefix doit etre affiché
+pluginPrefix: true

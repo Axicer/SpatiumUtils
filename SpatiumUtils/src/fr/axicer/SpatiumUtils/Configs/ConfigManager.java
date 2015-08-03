@@ -2,6 +2,7 @@ package fr.axicer.SpatiumUtils.Configs;
 
 import java.io.IOException;
 
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import fr.axicer.SpatiumUtils.SpatiumUtils;
@@ -15,6 +16,8 @@ import fr.axicer.SpatiumUtils.Utils.KitLoader;
 
 public class ConfigManager {
 	
+	public static SpatiumUtils pl;
+	
 	public static void setupConfigFiles(SpatiumUtils pl) throws IOException{
 		BannedPlayerConfig.setupBannedConfig(pl);
 		BannedUUIDPlayerConfig.setupBannedConfig(pl);
@@ -22,6 +25,7 @@ public class ConfigManager {
 		MoneyConfig.setupBannedConfig(pl);
 		MutedPlayerConfig.setupBannedConfig(pl);
 		KitConfig.setupKitConfig(pl);
+		ConfigManager.pl = pl;
 	}
 	
 	public static void reloadConfigFile(SpatiumUtils pl) throws IOException{
@@ -52,6 +56,9 @@ public class ConfigManager {
 	}
 	public static YamlConfiguration getKitConfig(){
 		return KitConfig.getKitConfig();
+	}
+	public static FileConfiguration getDefaultConfig(){
+		return pl.getConfig();
 	}
 	
 	public static void saveBannedPlayerConfig(){
