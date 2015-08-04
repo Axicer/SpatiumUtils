@@ -107,3 +107,6 @@ commands:
   kit:
     description: donne un kit !
     usage: /kit (get|material|enchantment|list) [kits]
+  light:
+    description: lance un eclair !
+    usage: /light

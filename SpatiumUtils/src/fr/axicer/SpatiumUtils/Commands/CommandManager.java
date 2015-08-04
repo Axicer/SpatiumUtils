@@ -13,6 +13,7 @@ import fr.axicer.SpatiumUtils.Commands.CommandExecutors.GravityGunCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.HealCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.InviCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.KitCommand;
+import fr.axicer.SpatiumUtils.Commands.CommandExecutors.LightCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.MaintenanceCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.MoonCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.NameCommand;
@@ -77,6 +78,7 @@ public class CommandManager {
 		pl.getCommand("feed").setExecutor(new FeedCommand());
 		pl.getCommand("heal").setExecutor(new HealCommand());
 		pl.getCommand("kit").setExecutor(new KitCommand());
+		pl.getCommand("light").setExecutor(new LightCommand());
 		
 		// setting tab executors
 		pl.getCommand("money").setTabCompleter(new MoneyTabCompleter());
