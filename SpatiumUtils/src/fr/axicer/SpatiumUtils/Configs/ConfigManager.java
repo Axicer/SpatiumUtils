@@ -12,6 +12,7 @@ import fr.axicer.SpatiumUtils.Configs.configs.KitConfig;
 import fr.axicer.SpatiumUtils.Configs.configs.MaintenanceConfig;
 import fr.axicer.SpatiumUtils.Configs.configs.MoneyConfig;
 import fr.axicer.SpatiumUtils.Configs.configs.MutedPlayerConfig;
+import fr.axicer.SpatiumUtils.Utils.Documentation;
 import fr.axicer.SpatiumUtils.Utils.KitLoader;
 
 public class ConfigManager {
@@ -37,6 +38,7 @@ public class ConfigManager {
 		KitConfig.setupKitConfig(pl);
 		KitLoader.loadKits();
 		pl.reloadConfig();
+		Documentation.createFile(pl);
 	}
 	
 	public static YamlConfiguration getbannedPlayerConfig(){
