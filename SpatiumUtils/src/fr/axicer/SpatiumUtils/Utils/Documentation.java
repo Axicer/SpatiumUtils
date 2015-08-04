@@ -56,7 +56,8 @@ public class Documentation {
 					+ "      |-> spatium.feed.other\n"
 					+ "/heal --> spatium.heal\n"
 					+ "      |-> spatium.heal.other\n"
-					+ "/kit --> spatium.kit"
+					+ "/kit --> spatium.kit\n"
+					+ "     |-> spatium.kit.other\n"
 					+ "\n"
 					+ "Il ne reste plus qu'a les installer ! =p");
 		}finally{
