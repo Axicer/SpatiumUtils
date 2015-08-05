@@ -30,6 +30,7 @@ import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SkickCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SmuteCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SpawnCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SreloadCommand;
+import fr.axicer.SpatiumUtils.Commands.CommandExecutors.StickCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SunCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SunbanCommand;
 import fr.axicer.SpatiumUtils.Commands.CommandExecutors.SunbanUUIDCommand;
@@ -79,6 +80,7 @@ public class CommandManager {
 		pl.getCommand("heal").setExecutor(new HealCommand());
 		pl.getCommand("kit").setExecutor(new KitCommand());
 		pl.getCommand("light").setExecutor(new LightCommand());
+		pl.getCommand("stick").setExecutor(new StickCommand());
 		
 		// setting tab executors
 		pl.getCommand("money").setTabCompleter(new MoneyTabCompleter());

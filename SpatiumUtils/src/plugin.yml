@@ -110,3 +110,6 @@ commands:
   light:
     description: lance un eclair !
     usage: /light
+  stick:
+    description: donne un baton... magique !
+    usage: /stick
