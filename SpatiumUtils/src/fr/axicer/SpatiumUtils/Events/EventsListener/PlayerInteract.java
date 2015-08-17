@@ -89,8 +89,8 @@ public class PlayerInteract implements Listener {
 					
 					Player player = ev.getPlayer();
 					Vector vec = player.getLocation().getDirection();
-					
-					Firework fw = (Firework) player.getLocation().getWorld().spawn(player.getLocation(),Firework.class);
+					Location loc = player.getLocation().add(0, 1, 0);
+					Firework fw = (Firework) loc.getWorld().spawn(loc,Firework.class);
 			        FireworkMeta fm = fw.getFireworkMeta();
 			        Random r = new Random();
 			        int fType = r.nextInt(5) + 1;

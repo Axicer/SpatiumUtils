@@ -1,5 +1,7 @@
 package fr.axicer.SpatiumUtils.Commands.CommandExecutors;
 
+import java.util.ArrayList;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -47,7 +49,7 @@ public class KitCommand implements CommandExecutor {
 						}
 					}else{
 						sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"La syntaxe est incorrecte !");
-						sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/kit (get|material|enchantment|list) [kit]"+ChatColor.RESET+"\".");
+						sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/kit (get|material|enchantment|list|addItem) [kit]"+ChatColor.RESET+"\".");
 					}
 				}else if(args.length == 2){
 					if(args[0].equalsIgnoreCase("get")){
@@ -59,9 +61,36 @@ public class KitCommand implements CommandExecutor {
 						}else{
 							player.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"Ce kit n'existe pas !");
 						}
+					}else if(args[0].equalsIgnoreCase("addItem")){
+						if(player.isOp() || Vault.getPermissions().has(player, "spatium.kit.addItem") || Vault.getPermissions().has(player, "spatium.*")){
+							if(KitLoader.getKits().containsKey(args[1])){
+								if(player.getItemInHand().getType() != Material.AIR){
+									ItemStack newItem = new ItemStack(player.getItemInHand());
+									ConfigManager.getKitConfig().set("kits."+args[1]+".items."+newItem.getType().toString()+".name", newItem.getItemMeta().getDisplayName());
+									ConfigManager.getKitConfig().set("kits."+args[1]+".items."+newItem.getType().toString()+".material", newItem.getType().toString());
+									ConfigManager.getKitConfig().set("kits."+args[1]+".items."+newItem.getType().toString()+".amount", newItem.getAmount());
+									ConfigManager.getKitConfig().set("kits."+args[1]+".items."+newItem.getType().toString()+".data", newItem.getData());
+									ConfigManager.getKitConfig().set("kits."+args[1]+".items."+newItem.getType().toString()+".lores", newItem.getItemMeta().getLore());
+									ArrayList<String> enchantsCompiled = new ArrayList<String>();
+									for(Enchantment enchant: newItem.getEnchantments().keySet()){
+										enchantsCompiled.add(enchant.getName()+","+newItem.getEnchantmentLevel(enchant));
+									}
+									ConfigManager.getKitConfig().set("kits."+args[1]+".items."+newItem.getType().toString()+".enchantment", enchantsCompiled);
+									ConfigManager.saveKitConfig();
+									KitLoader.loadKits();
+									player.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.GREEN+"L'item a été ajouté !");
+								}else{
+									player.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"L'item dans la main ne peut pas etre de l'air !");
+								}
+							}else{
+								player.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"Le kit est introuvable !");
+							}
+						}else{
+							sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"Tu n'es pas autorisé a effectuer cette commande !");
+						}
 					}else{
 						sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"La syntaxe est incorrecte !");
-						sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/kit (get|material|enchantment|list) [kit]"+ChatColor.RESET+"\".");
+						sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/kit (get|material|enchantment|list|addItem) [kit]"+ChatColor.RESET+"\".");
 					}
 				}else if(args.length == 3){
 					if(args[0].equalsIgnoreCase("get")){
@@ -88,11 +117,11 @@ public class KitCommand implements CommandExecutor {
 						}
 					}else{
 						sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"La syntaxe est incorrecte !");
-						sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/kit (get|material|enchantment|list) [kit]"+ChatColor.RESET+"\".");
+						sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/kit (get|material|enchantment|list|addItem) [kit]"+ChatColor.RESET+"\".");
 					}
 				}else{
 					sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"La syntaxe est incorrecte !");
-					sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/kit (get|material|enchantment|list) [kit]"+ChatColor.RESET+"\".");
+					sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/kit (get|material|enchantment|list|addItem) [kit]"+ChatColor.RESET+"\".");
 				}
 			}else{
 				if(args.length == 1){
@@ -122,14 +151,14 @@ public class KitCommand implements CommandExecutor {
 						}
 					}else{
 						sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"La syntaxe est incorrecte !");
-						sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/kit (get|material|enchantment|list) [kit]"+ChatColor.RESET+"\".");
+						sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/kit (get|material|enchantment|list|addItem) [kit]"+ChatColor.RESET+"\".");
 					}
 				}else if(args.length == 2){
 					if(args[0].equalsIgnoreCase("get")){
 						sender.sendMessage("Il faut etre un joueur pour executer cette commande !");
 					}else{
 						sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"La syntaxe est incorrecte !");
-						sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/kit (get|material|enchantment|list) [kit]"+ChatColor.RESET+"\".");
+						sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/kit (get|material|enchantment|list|addItem) [kit]"+ChatColor.RESET+"\".");
 					}
 				}else if(args.length == 3){
 					if(args[0].equalsIgnoreCase("get")){
@@ -156,11 +185,11 @@ public class KitCommand implements CommandExecutor {
 						}
 					}else{
 						sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"La syntaxe est incorrecte !");
-						sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/kit (get|material|enchantment|list) [kit]"+ChatColor.RESET+"\".");
+						sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/kit (get|material|enchantment|list|addItem) [kit]"+ChatColor.RESET+"\".");
 					}
 				}else{
 					sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"La syntaxe est incorrecte !");
-					sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/kit (get|material|enchantment|list) [kit]"+ChatColor.RESET+"\".");
+					sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/kit (get|material|enchantment|list|addItem) [kit]"+ChatColor.RESET+"\".");
 				}
 			}
 		}else{

@@ -57,6 +57,7 @@ public class Documentation {
 						+ "      |-> spatium.heal.other\n"
 						+ "/kit --> spatium.kit\n"
 						+ "     |-> spatium.kit.other\n"
+						+ "     |-> spatium.addItem"
 						+ "/light --> spatium.light\n"
 						+ "/stick --> spatium.stick\n"
 						+ "\n"
