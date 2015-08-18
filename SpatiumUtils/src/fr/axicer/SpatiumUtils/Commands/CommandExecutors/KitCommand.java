@@ -155,7 +155,7 @@ public class KitCommand implements CommandExecutor {
 					}
 				}else if(args.length == 2){
 					if(args[0].equalsIgnoreCase("get")){
-						sender.sendMessage("Il faut etre un joueur pour executer cette commande !");
+						sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"Il faut etre un joueur pour executer cette commande !");
 					}else{
 						sender.sendMessage(ChatUtils.getPluginPrefix()+ChatColor.RED+"La syntaxe est incorrecte !");
 						sender.sendMessage(ChatUtils.getPluginPrefix()+"La commande est \""+ChatColor.GOLD+"/kit (get|material|enchantment|list|addItem) [kit]"+ChatColor.RESET+"\".");
