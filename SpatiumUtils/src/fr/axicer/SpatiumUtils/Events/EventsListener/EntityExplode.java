@@ -19,9 +19,10 @@ public class EntityExplode implements Listener {
 	public void onEntityExplode(EntityExplodeEvent ev){
 		if(ev.getEntity() instanceof Creeper){
 			if(!pl.getConfig().getBoolean("creeperDamage")){
+				Float power = ev.getYield();
 				Location loc = ev.getLocation();
 				ev.setCancelled(true);
-				loc.getWorld().createExplosion(loc.getX(), loc.getY(), loc.getZ(), 4, false, false);
+				loc.getWorld().createExplosion(loc.getX(), loc.getY(), loc.getZ(), power, false, false);
 			}
 		}
 	}

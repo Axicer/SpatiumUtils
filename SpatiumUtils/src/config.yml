@@ -13,4 +13,3 @@ spawnpoint:
 creeperDamage: false
 # determine si le prefix doit etre affiché
 pluginPrefix: true
-playerInstantPortalTP: true
